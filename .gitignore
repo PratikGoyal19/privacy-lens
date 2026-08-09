@@ -218,3 +218,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Generated evaluation sets (rebuild with src/dataset_a_gen.py and
+# src/dataset_c_gen.py; deliberately not committed)
+sentences.csv
+spans.csv
+dataset_c.csv
+dataset_c_eval.jsonl
+validation_errors.txt
