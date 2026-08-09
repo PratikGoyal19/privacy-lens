@@ -1,0 +1,70 @@
+# Reserved cue strings from Dataset A. Must NOT appear in Dataset B.
+# Match with boundary_find(), not `in`: 'Wein' is a substring of
+# 'Schweinefleisch' and a naive check would pass a real collision.
+Anfall
+Anonymen Alkoholiker
+Apfel und Honig
+Autoimmunerkrankung
+Beinprothese
+Bestrahlungstermine
+Blutzucker
+Chemo-Sitzung
+Chemotherapie
+Dialyse
+Diwali
+Energie im Tagesverlauf stark
+Entwöhnungsklinik
+Epilepsie-Notfallausweis
+Freitagsgebet
+Geburtstermin
+Hebräisch
+Insulin
+Kopftuch
+Kreuzkümmel und Sumach
+Moschee
+Mumbai
+Mutterschutz
+Nouruz
+Onkologen
+Piroggen
+Polen
+Ramadan
+Reha-Programm
+Rollstuhl
+Samstag für die Familie reserviert
+Sari
+Schabbat
+Schinkenhäppchen
+Schwerbehindertenausweis
+Tablettenschachtel
+Therapiebeginn
+Türkisch
+Wein
+Zuckerfest
+antiretrovirale
+chinesische Neujahrsfest
+freitagnachmittags
+fünfmal am Tag
+geröteten Augen
+griechisch-orthodoxe Gemeinde
+größere Menschenansammlungen
+halal
+im Januar ein anderes großes Fest
+jüdischen Neujahrsfest
+kaum noch etwas
+kein Schweinefleisch
+keinen Alkohol
+kleines rundes Pflaster
+krankgeschrieben
+nah an der Tür
+nur Wasser
+rote Umschläge
+samstags kein Licht
+schwanger
+schwerfallen
+schwindlig
+spritzt
+stark abgenommen
+vor der Wohnungstür
+wechselt schnell das Thema
+zitterten

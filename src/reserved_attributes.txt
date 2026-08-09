@@ -1,0 +1,7 @@
+# Attributes held out of Dataset B entirely (unseen-attribute eval).
+health:chronic_fatigue
+health:autoimmune
+health:epilepsy
+ethnicity:cultural_practice_persian
+ethnicity:cultural_practice_indian
+ethnicity:religious_practice_orthodox
