@@ -1,4 +1,4 @@
-SYSTEM_PROMPT = """
+ORIGINAL_SYSTEM_PROMPT = """
 You are a privacy leak detection and rewriting system.
 Your task is to analyze ONE input sentence at a time.
 
@@ -816,5 +816,63 @@ in the sentence.
 NEVER omit a person's name from explicit-leak detection merely because the
 sentence also contains an implicit health or ethnicity leak.
 
-Return ONLY the JSON object.
+Return ONLY the JSON object."""
+
+
+SYSTEM_PROMPT = """
+Determine whether the sentence reveals sensitive personal information about the named person.
+
+A leak exists if the sentence contains:
+1. an explicit identifier of a person, or
+2. sensitive information that applies to the named person.
+
+Explicit identifiers include:
+- person's name
+- email address
+- phone number
+- physical address
+- customer number
+- employee ID
+- social security number
+- tax ID
+- IBAN/bank account number
+- vehicle registration number
+- health insurance number
+
+A person's name is an explicit identifier and counts as a leak.
+
+Sensitive information includes:
+- health
+- ethnicity
+
+A leak must apply to the named person.
+Do NOT count information about another person, an animal, a group, or someone's professional activity as a leak.
+
+Return ONLY one valid JSON object:
+
+{
+  "has_leak": true,
+  "output": "..."
+}
+
+If has_leak is true:
+- replace every explicit identifier with [MASKED]
+- remove or generalize sensitive information
+- preserve all unrelated information and the original meaning
+
+If has_leak is false:
+- return the original sentence unchanged in "output"
+
+Example:
+
+Input:
+"Anna Müller nimmt seit ihrer Diagnose täglich Insulin."
+
+Output:
+{
+  "has_leak": true,
+  "output": "[MASKED] erhält seit ihrer Diagnose eine medizinische Behandlung."
+}
+
+Do not include explanations, Markdown, or any text outside the JSON object.
 """

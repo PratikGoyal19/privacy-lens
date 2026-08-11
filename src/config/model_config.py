@@ -13,20 +13,23 @@ Models:
 '''
 
 models = {
-   "llama": {
-        "name": "llama3.2:3b",
+    "llama3.2": {
+        "name": "llama3.2",
         "temperature": 0.0,
     },
-    "qwen": {
-        "name": "qwen2.5:3b",
+
+    "qwen2.5": {
+        "name": "qwen2.5:7b",
         "temperature": 0.0,
     },
+
     "mistral": {
-        "name": "ministral-3:3b",
+        "name": "mistral",
         "temperature": 0.0,
     },
-    "gemma": {
-        "name": "gemma3:4b",
+
+    "deepseek": {
+        "name": "deepseek-r1:8b",
         "temperature": 0.0,
-    }
+    },
 }
