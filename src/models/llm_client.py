@@ -1,11 +1,3 @@
-"""
-LLM client for interacting with Ollama models.
-Sends a system prompt and user prompt to the configured model,
-applies the model's generation settings, and optionally enforces
-a structured response format such as a JSON schema.
-Returns the generated response as a string.
-"""
-
 import ollama
 
 
@@ -15,22 +7,26 @@ def generate_response(
     user_prompt,
     response_format=None
 ):
-    response = ollama.chat(
-        model=model_config["name"],
-        messages=[
-            {
-                "role": "system",
-                "content": system_prompt,
-            },
-            {
-                "role": "user",
-                "content": user_prompt,
-            }
-        ],
-        options={
-            "temperature": model_config["temperature"],
+    messages = [
+        {
+            "role": "system",
+            "content": system_prompt,
         },
-        format=response_format
-    )
+        {
+            "role": "user",
+            "content": user_prompt,
+        }
+    ]
 
+    kwargs = {
+        "model": model_config["name"],
+        "messages": messages,
+        "options": {
+            "temperature": model_config["temperature"]
+        }
+    }
+    if response_format is not None:
+        kwargs["format"] = response_format
+
+    response = ollama.chat(**kwargs)
     return response["message"]["content"]
