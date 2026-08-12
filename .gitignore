@@ -226,3 +226,9 @@ spans.csv
 dataset_c.csv
 dataset_c_eval.jsonl
 validation_errors.txt
+
+# fine-tuning artefacts
+finetuning/*/final_model/
+finetuning/*/checkpoints/
+finetuning/gold_as_preds.json
+.DS_Store
