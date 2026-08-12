@@ -6,7 +6,41 @@ optionally applies a response format, and returns the generated
 text response.
 """
 
+import json
+import re
+
 import ollama
+
+# Reasoning models need room for their internal deliberation before the answer.
+# deepseek-r1 restates its conclusion several times and often runs past a fixed
+# budget, so it is left uncapped; the others are capped to stop llama3.2 from
+# entering a repetition loop and hanging the run.
+REASONING_BUDGET = -1
+STANDARD_BUDGET = 4000
+
+JSON_OBJECT = re.compile(r"\{[^{}]*\"action\"[^{}]*\}", re.DOTALL)
+
+
+def recover_json(thinking):
+    """
+    Pull the answer out of a reasoning trace.
+
+    When generation stops on length, `content` is empty but the model has
+    usually already written the finished JSON inside its reasoning, often more
+    than once. The last complete object is its final position, so that is the
+    one taken.
+    """
+    if not thinking:
+        return ""
+    candidates = JSON_OBJECT.findall(thinking)
+    for candidate in reversed(candidates):
+        try:
+            json.loads(candidate)
+        except json.JSONDecodeError:
+            continue
+        return candidate
+    return ""
+
 
 def generate_response(
     model_config,
@@ -25,31 +59,30 @@ def generate_response(
         }
     ]
 
+    is_reasoning_model = "deepseek" in model_config["name"].lower()
+
     kwargs = {
         "model": model_config["name"],
         "messages": messages,
         "options": {
             "temperature": model_config["temperature"],
-            "num_predict": 4000,
-
+            "num_predict": REASONING_BUDGET if is_reasoning_model else STANDARD_BUDGET,
         },
-         "think": False,
+        "think": False,
         "stream": False,
     }
 
     if response_format is not None:
         kwargs["format"] = response_format
 
-    print("Calling ollama.chat()", flush=True)
-
     response = ollama.chat(**kwargs)
-
     message = response["message"]
 
-    content = message.get("content", "").strip()
+    content = (message.get("content") or "").strip()
 
-    print("RAW OLLAMA RESPONSE:", repr(response), flush=True)
-    print("THINKING:", repr(message.get("thinking", "")), flush=True)
-    print("CONTENT:", repr(content), flush=True)
+    if not content:
+        content = recover_json(message.get("thinking") or "")
+        if content:
+            print("  recovered JSON from reasoning trace", flush=True)
 
     return content
