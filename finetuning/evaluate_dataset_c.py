@@ -42,6 +42,33 @@ REASON_PROMPT = (
     "gefolgt von einer kurzen Begründung in einem Satz."
 )
 
+# The same question in English. Appending an English request to the German
+# prompt above does not work: the model follows the language of its context
+# and answered in German on 20 of 20 items. What works, as in
+# src/prompts/privacy_prompt.py, is an entirely English prompt with an
+# explicit length-and-language rule and a worked example pairing a German
+# sentence with an English answer.
+REASON_PROMPT_EN = (
+    "You are a data protection expert.\n\n"
+    "Decide whether the following German sentence may be published unchanged "
+    "under the GDPR, or whether it must be redacted.\n\n"
+    "Answer with exactly one keyword, PRESERVE or REDACT, followed by a "
+    "hyphen and one short justification.\n\n"
+    "Rules:\n"
+    "1. The justification MUST be one sentence in English, maximum 20 words.\n"
+    "2. Do NOT answer in German.\n"
+    "3. Do NOT translate or repeat the sentence.\n"
+    "4. Write nothing before the keyword and nothing after the justification.\n\n"
+    "Example:\n"
+    "Sentence: Der Lagerleiter Norbert Perscheid fällt wegen einer Behandlung "
+    "mehrere Wochen aus.\n"
+    "Answer: REDACT - The sentence names a private individual and discloses a "
+    "health condition.\n\n"
+    "Example:\n"
+    "Sentence: Der Minister nahm an der Veranstaltung teil.\n"
+    "Answer: PRESERVE - The information concerns the person's public role."
+)
+
 # The default system prompt (carried in the JSONL, shared with Datasets A and B)
 # never mentions legitimate exemptions, so a model that redacts everything is
 # arguably following it. This variant names the exemptions explicitly, which
@@ -127,23 +154,45 @@ def classify(source, output, threshold):
 
 def stated_decision(reasoning):
     """
-    Read BEIBEHALTEN / REDIGIEREN out of the justification.
+    Read the decision keyword out of a justification, German or English.
 
     Takes whichever keyword comes first and respects negation, so "nicht
-    redigieren" is read as PRESERVE rather than its opposite.
+    redigieren" and "should not be redacted" are read as PRESERVE.
     """
     head = reasoning[:200].upper()
     found = []
     for keyword, decision in (("REDIGIEREN", "REDACT"), ("REDIGIERT", "REDACT"),
-                              ("BEIBEHALTEN", "PRESERVE")):
+                              ("BEIBEHALTEN", "PRESERVE"),
+                              ("REDACT", "REDACT"), ("PRESERVE", "PRESERVE")):
         index = head.find(keyword)
         if index == -1:
             continue
         preceding = head[max(0, index - 20):index]
-        if any(negation in preceding for negation in ("NICHT", "KEINE", "KEIN ")):
+        if any(negation in preceding for negation in ("NICHT", "KEINE", "KEIN ",
+                                                      "NOT ", "NO ")):
             decision = "PRESERVE" if decision == "REDACT" else "REDACT"
         found.append((index, decision))
     return min(found)[1] if found else "UNCLEAR"
+
+
+GERMAN_MARKERS = (
+    " der ", " die ", " das ", " enthält", " keine ", " nicht ", " und ",
+    " ist ", " werden", " persönlich", " Satz", " Daten", " könnte",
+)
+
+
+def looks_german(text):
+    """Rough check on whether an English justification came back in German.
+
+    A 3B model does not always comply with a language instruction, and the
+    compliance rate belongs in the results rather than being assumed.
+    """
+    if not text:
+        return False
+    body = " " + " ".join(text.split()) + " "
+    for keyword in ("BEIBEHALTEN", "REDIGIEREN", "REDIGIERT"):
+        body = body.replace(keyword, " ")
+    return sum(1 for marker in GERMAN_MARKERS if marker in body) >= 2
 
 
 def load_model(base_only, adapter, device):
@@ -166,7 +215,8 @@ def load_model(base_only, adapter, device):
     return model, tokenizer
 
 
-def evaluate(model, tokenizer, device, items, threshold, legitimacy_prompt=False):
+def evaluate(model, tokenizer, device, items, threshold, legitimacy_prompt=False,
+             english_reason=True):
     results, failures = [], []
     for index, item in enumerate(items, 1):
         record, meta = item["record"], item["meta"]
@@ -182,6 +232,10 @@ def evaluate(model, tokenizer, device, items, threshold, legitimacy_prompt=False
                 {"role": "system", "content": REASON_PROMPT},
                 {"role": "user", "content": source},
             ])
+            reasoning_en = ask(model, tokenizer, device, [
+                {"role": "system", "content": REASON_PROMPT_EN},
+                {"role": "user", "content": source},
+            ]) if english_reason else ""
         except Exception as error:
             print(f"  {index}/{len(items)}  {record['id']}: failed ({type(error).__name__})")
             failures.append({"id": record["id"], "error": str(error)})
@@ -205,6 +259,9 @@ def evaluate(model, tokenizer, device, items, threshold, legitimacy_prompt=False
             "expected_output": meta["expected_output"],
             "prediction": redacted,
             "reasoning": reasoning,
+            "reasoning_en": reasoning_en,
+            "decision_stated_en": stated_decision(reasoning_en) if english_reason else "",
+            "reasoning_en_is_german": looks_german(reasoning_en) if english_reason else None,
             "rationale_gold": meta["rationale_de"],
         })
         print(f"  {index}/{len(items)}  {record['id']}: expected {expected}, got {decision}")
@@ -223,6 +280,16 @@ def report(results):
     agree = sum(1 for r in results if r["decision_stated"] == r["decision_from_output"])
     print(f"\nStated decision matches behaviour: {agree}/{len(results)}")
     print("  a gap means the model can state a rule it does not apply when filtering")
+
+    scored = [r for r in results if r.get("reasoning_en")]
+    if scored:
+        in_german = sum(1 for r in scored if r["reasoning_en_is_german"])
+        print(f"\nEnglish justification requested: {len(scored)}")
+        print(f"  answered in German anyway: {in_german}/{len(scored)}")
+        same = sum(1 for r in scored if r["decision_stated_en"] == r["decision_stated"])
+        print(f"  same stated decision in both languages: {same}/{len(scored)}")
+        agree_en = sum(1 for r in scored if r["decision_stated_en"] == r["decision_from_output"])
+        print(f"  English stated decision matches behaviour: {agree_en}/{len(scored)}")
 
     pairs = {}
     for r in results:
@@ -245,6 +312,8 @@ def main():
     parser.add_argument("--legitimacy-prompt", action="store_true",
                         help="use a system prompt that names the Art. 85 and "
                              "Art. 9(2)(e) exemptions explicitly")
+    parser.add_argument("--no-english-reason", action="store_true",
+                        help="skip the English justification pass")
     parser.add_argument("--out", type=Path, default=None)
     args = parser.parse_args()
 
@@ -264,7 +333,8 @@ def main():
     print(f"{len(items)} items\n")
 
     results, failures = evaluate(model, tokenizer, device, items,
-                                 args.threshold, args.legitimacy_prompt)
+                                 args.threshold, args.legitimacy_prompt,
+                                 english_reason=not args.no_english_reason)
     if not results:
         raise SystemExit("No items were evaluated successfully.")
 
