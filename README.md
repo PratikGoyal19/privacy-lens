@@ -199,21 +199,26 @@ single LLM call.
 
 The expected response is a JSON object:
 
+```json
 {
-  "has_leak": "<boolean>", 
-  "output":"<sanitized sentence>"
-} 
+  "has_leak": "",
+  "output": ""
+}
+```
 
 For Dataset C, each model processes each sentence independently using a
 single LLM call.
 
 The expected response is a JSON object:
 
+```json
 {
   "predicted_action": "<action>",
   "output": "<sanitized sentence>",
   "reason": "<explanation>"
 }
+
+```
 
 The allowed predicted actions are:
 
