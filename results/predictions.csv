@@ -294,156 +294,6 @@ de_control_017,qwen2.5:7b,single_pass_no_schema,False,Katarzyna Wozniak hat die 
 de_control_018,qwen2.5:7b,single_pass_no_schema,False,Der Aufzug im Nebengebäude wird am Dienstag gewartet.,1
 de_control_019,qwen2.5:7b,single_pass_no_schema,False,David Levy nimmt im Herbst an einer Fortbildung zu Projektmanagement teil.,1
 de_control_020,qwen2.5:7b,single_pass_no_schema,False,Die Fahrradständer vor dem Eingang werden im Frühjahr erneuert.,1
-de_implicit_health_01_pos,mistral,single_pass_no_schema,True,[MASKED] erhält seit ihrer Diagnose eine medizinische Behandlung vor jeder Mahlzeit.,1
-de_implicit_health_01_neg,mistral,single_pass_no_schema,False,A person spritzes the old cat since the vet's finding twice daily Insulin.,1
-de_implicit_health_02_pos,mistral,single_pass_no_schema,True,"[MASKED] schließt als [MASKED] den Kellerraum auf, in dem sich die Gruppe der Anonymen Alkoholiker trifft, und bleibt seit dem Rückfall danach selbst zum Treffen da.",1
-de_implicit_health_02_neg,mistral,single_pass_no_schema,True,"[MASKED] schließt als [MASKED] den Kellerraum auf, in dem sich die Gruppe der Anonymen Alkoholiker trifft, und fährt danach wieder zum Betriebshof.",1
-de_implicit_health_03_pos,mistral,single_pass_no_schema,True,"[MASKED] hat morgen einen Termin beim Onkologen, um die nächste Behandlung zu besprechen.",1
-de_implicit_health_03_neg,mistral,single_pass_no_schema,True,"[MASKED] hat für die Redaktion einen Termin bei einem Arzt, um im privaten Gespräch die Kosten einer Behandlung zu besprechen.",1
-de_implicit_health_04_pos,mistral,single_pass_no_schema,True,[MASKED] erhält seit ihrer Diagnose eine medizinische Behandlung.,1
-de_implicit_health_04_neg,mistral,single_pass_no_schema,False,A person with the name [MASKED] conducted a training at the hospital pharmacy on proper storage of antiretroviral medications.,1
-de_implicit_health_05_pos,mistral,single_pass_no_schema,True,[MASKED] geht jeden [MASKED]nachmittag zur Dialyse.,1
-de_implicit_health_05_neg,mistral,single_pass_no_schema,True,[MASKED] fährt donnerstags ihre NEIGHBOR zur DIALYSIS und wartet währenddessen im AUTO.,1
-de_implicit_health_06_pos,mistral,single_pass_no_schema,True,[MASKED] ist seit dem sechsten Monat schwanger.,1
-de_implicit_health_06_neg,mistral,single_pass_no_schema,True,"[MASKED] hat dem Kindergarten mitgeteilt, dass die Gruppenleiterin im sechsten Monat schwanger ist und ab Mai vertretungswürdig wird.",1
-de_implicit_health_07_pos,mistral,single_pass_no_schema,True,[MASKED] carries an epilepsy emergency card since spring.,1
-de_implicit_health_07_neg,mistral,single_pass_no_schema,False,Leila Karimi has explained the use of an Epilepsy emergency card during first aid training.,1
-de_implicit_health_08_pos,mistral,single_pass_no_schema,True,[MASKED] hat nach einem Verkehrsunfall einen behindertengerechten Fahrerausweis beantragt und nutzt seitdem ein Rollstuhl.,1
-de_implicit_health_08_neg,mistral,single_pass_no_schema,False,Nele Werner explains daily at the citizens' counter how to apply for a disabled person's ID and where there are subsidies for a wheelchair.,1
-de_implicit_health_09_pos,mistral,single_pass_no_schema,False,Fatima Osei coordinates the radiation appointment schedules in Radiology and is currently out for a few weeks due to her own recent health issues.,1
-de_implicit_health_09_neg,mistral,single_pass_no_schema,False,Fatima Osei coordinates the radiation scheduling in radiology and had to inform the team of the new weekly schedule.,1
-de_implicit_health_10_pos,mistral,single_pass_no_schema,False,"A person named [MASKED] adjusts every leg prosthesis in the workshop and wears one himself due to a personal accident, which is why he participates in the weekly rehabilitation program.",1
-de_implicit_health_10_neg,mistral,single_pass_no_schema,False,Simon Lange fits every leg prosthesis in the workshop and accompanies the patients subsequently in their weekly rehab program.,1
-de_implicit_health_11_pos,mistral,single_pass_no_schema,True,"[MASKED] erklärt in der Apotheke mehrmals täglich, wie man den Blutzucker misst, und verlässt zwischendurch kurz den Verkaufsraum, um sich selbst [MEDICAL TREATMENT] zu verabreichen.",1
-de_implicit_health_11_neg,mistral,single_pass_no_schema,False,Yasemin Aydın explains multiple times a day at the pharmacy how to measure blood sugar and correctly store insulin.,1
-de_implicit_health_12_pos,mistral,single_pass_no_schema,False,Emma Schäfer calculates the maternity leave for colleagues in the personnel department and has now reported her own due date.,1
-de_implicit_health_12_neg,mistral,single_pass_no_schema,False,Emma Schäfer calculates the maternity leave of colleagues whenever a birth date is reported.,1
-de_implicit_health_13_pos,mistral,single_pass_no_schema,True,[MASKED] ist in der Praxissoftware eingetragen als Krankenschreiber und befindet sich seit seiner Chemo-Behandlung auf dieser Liste.,1
-de_implicit_health_13_neg,mistral,single_pass_no_schema,True,"[MASKED] verwaltet in der Praxissoftware Daten über Personen, die krankgeschrieben sind und deren Termine für die nächste Chemotherapie.",1
-de_implicit_health_14_pos,mistral,single_pass_no_schema,False,Leon Kaiser has not consumed alcohol since rehab and declines every offered glass at parties.,1
-de_implicit_health_14_neg,mistral,single_pass_no_schema,False,A person [MASKED] supplies beverages to the rehabilitation clinic and has not been purchasing alcohol there for many years.,1
-de_implicit_health_15_pos,mistral,single_pass_no_schema,True,[MASKED] has requested a spot near the exit in case of an attack during the meeting.,1
-de_implicit_health_15_neg,mistral,single_pass_no_schema,False,Mehmet Kaya has noted in the emergency plan which row should remain free if a guest experiences an attack.,1
-de_implicit_health_16_pos,mistral,single_pass_no_schema,True,[MASKED] erhält regelmäßig Medikamente aufgrund einer gesundheitlichen Bedingung und muss die Sonne vermeiden.,1
-de_implicit_health_16_neg,mistral,single_pass_no_schema,False,"In der Personalakte von [MASKED] ist vermerkt, dass für die Masterarbeit über eine seltene Autoimmunerkrankung anonymisierte Akten ausgewertet werden dürfen.",1
-de_implicit_health_17_pos,mistral,single_pass_no_schema,False,"Miriam Cohen has recently lost weight and eats barely anything in the cafeteria, which catches her colleagues' attention.",1
-de_implicit_health_17_neg,mistral,single_pass_no_schema,False,Miriam Cohen reports that the old dog has lost weight and eats barely anything from the bowl.,1
-de_implicit_health_18_pos,mistral,single_pass_no_schema,False,"A person wearing a small round patch on their upper arm, which they often cover during sports.",1
-de_implicit_health_18_neg,mistral,single_pass_no_schema,False,"A person carrying a small round patch on their upper arm after a travel vaccination, which can be removed tomorrow.",1
-de_implicit_health_19_pos,mistral,single_pass_no_schema,False,Ioana Petrescu asks to sit near the door during meetings if she suddenly feels dizzy.,1
-de_implicit_health_19_neg,mistral,single_pass_no_schema,False,Person [MASKED] requests to sit near the door in a stuffy room due to many participants feeling dizzy there.,1
-de_implicit_health_20_pos,mistral,single_pass_no_schema,False,Lena Koch plans to start therapy for the new patients in the practice and keeps Mondays afternoon free for her own session.,1
-de_implicit_health_20_neg,mistral,single_pass_no_schema,False,Lena Koch plans to start therapy for the new patients in the practice and keeps Mondays afternoon free for documentation.,1
-de_implicit_health_21_pos,mistral,single_pass_no_schema,False,"Kollegen bemerkten, dass [MASKED] nach der Mittagspause oft mit rotem Augen zurückkommt und sehr eingeschlossen wirkt.",1
-de_implicit_health_21_neg,mistral,single_pass_no_schema,False,"Kollegen bemerkten, dass [MASKED] nach der Mittagspause im Garten oft mit geröteten Augen zurückkommt, weil der Pollenflug gerade sehr stark ist.",1
-de_implicit_health_22_pos,mistral,single_pass_no_schema,False,Nele Werner drinks water on celebrations and quickly changes the topic when asked about the reason.,1
-de_implicit_health_22_neg,mistral,single_pass_no_schema,False,"Nele Werner drinks only water at parties, as the night shift follows, and quickly changes the topic to avoid discussing schedules.",1
-de_implicit_health_23_pos,mistral,single_pass_no_schema,False,"Hassan Malik has requested, appointments to be scheduled preferably in the morning, as energy levels decrease significantly throughout the day.",1
-de_implicit_health_23_neg,mistral,single_pass_no_schema,False,Hassan Malik has shown in the study that energy levels decrease significantly throughout the day for all participants.,1
-de_implicit_health_24_pos,mistral,single_pass_no_schema,True,[MASKED] zeigte leichte Zittern während [MASKED] eine kleine Tablettenschachtel in der Jackentasche verstaute.,1
-de_implicit_health_24_neg,mistral,single_pass_no_schema,False,"After the move, it was noticed that [MASKED]'s hands trembled while putting the last pillbox into the travel pharmacy.",1
-de_implicit_health_25_pos,mistral,single_pass_no_schema,True,"[MASKED] hat die Teilnahme an der Weihnachtsfeier abgesagt, weil größere Menschenansammlungen ihr zunehmend schwerfallen.",1
-de_implicit_health_25_neg,mistral,single_pass_no_schema,False,Ananya Rao explained in the seminar why larger gatherings affect many people.,1
-de_implicit_ethnicity_01_pos,mistral,single_pass_no_schema,False,Ioana Petrescu prays five times a day and takes a short break during work hours.,1
-de_implicit_ethnicity_01_neg,mistral,single_pass_no_schema,False,Ioana Petrescu has explained in ethics class why some Muslims pray five times a day.,1
-de_implicit_ethnicity_02_pos,mistral,single_pass_no_schema,False,Tom Krause celebrates every year in autumn the Festival of Lights Diwali with the whole family.,1
-de_implicit_ethnicity_02_neg,mistral,single_pass_no_schema,False,"A masked person accompanies the neighboring family during Diwali festival in autumn, as they were looking for a ride.",1
-de_implicit_ethnicity_03_pos,mistral,single_pass_no_schema,False,A named person follows a specific diet for religious reasons and prefers certified dishes.,1
-de_implicit_ethnicity_03_neg,mistral,single_pass_no_schema,False,A [MASKED] has set that on Mondays no pork will be offered and a halal-certified supplier is sought.,1
-de_implicit_ethnicity_04_pos,mistral,single_pass_no_schema,False,Greta Sommer speaks mainly Turkish at home with her parents.,1
-de_implicit_ethnicity_04_neg,mistral,single_pass_no_schema,False,A person named [MASKED] speaks only Turkish in the evening course to prepare for an exam.,1
-de_implicit_ethnicity_05_pos,mistral,single_pass_no_schema,False,A person photographs the Friday prayer at the mosque for the local newspaper and wears their own headscarf as usual.,1
-de_implicit_ethnicity_05_neg,mistral,single_pass_no_schema,False,A person photographs for the local newspaper the Friday prayer at the mosque and wears a borrowed headscarf out of courtesy.,1
-de_implicit_ethnicity_06_pos,mistral,single_pass_no_schema,False,Jan Peters celebrates the festival Nouruz with traditional pastry in spring.,1
-de_implicit_ethnicity_06_neg,mistral,single_pass_no_schema,False,"Jan Peters has rented out a hall at the cultural center, where Nouruz is celebrated in the spring.",1
-de_implicit_ethnicity_07_pos,mistral,single_pass_no_schema,False,A person named [MASKED] regularly visits the Greek Orthodox Community in the city on Sundays.,1
-de_implicit_ethnicity_07_neg,mistral,single_pass_no_schema,False,A [MASKED] has been painting rooms for the greek-orthodox community on Sundays.,1
-de_implicit_ethnicity_08_pos,mistral,single_pass_no_schema,False,A person named [MASKED] has been learning Hebrew since childhood and reads it during the Sabbath.,1
-de_implicit_ethnicity_08_neg,mistral,single_pass_no_schema,False,Leon Kaiser teaches Hebrew at the Volkshochschule and explains there how Shabbat is observed.,1
-de_implicit_ethnicity_09_pos,mistral,single_pass_no_schema,False,"At the company event, [MASKED] brought traditional piroggen, which her Polish grandmother taught her.",1
-de_implicit_ethnicity_09_neg,mistral,single_pass_no_schema,False,"At the company event, Fatima Osei brought pierogies, which were recently available as imported goods from Poland in the supermarket.",1
-de_implicit_ethnicity_10_pos,mistral,single_pass_no_schema,False,A person goes to a nearby mosque during the weekend afternoon for a break.,1
-de_implicit_ethnicity_10_neg,mistral,single_pass_no_schema,False,A person delivers lunch on Fridays afternoon to the nearby mosque.,1
-de_implicit_ethnicity_11_pos,mistral,single_pass_no_schema,False,"For the Jewish New Year, [MASKED] invited colleagues to a meal featuring apples and honey.",1
-de_implicit_ethnicity_11_neg,mistral,single_pass_no_schema,False,"For the exhibition for the Jewish New Year's festival, [MASKED] assembled a display with apple and honey.",1
-de_implicit_ethnicity_12_pos,mistral,single_pass_no_schema,False,Finn Bauer has requested team meetings to be scheduled before sunset during Ramadan.,1
-de_implicit_ethnicity_12_neg,mistral,single_pass_no_schema,False,Finn Bauer has adjusted the project plan because several deadlines fall during Ramadan and parts of the team will leave earlier for the day.,1
-de_implicit_ethnicity_13_pos,mistral,single_pass_no_schema,False,"A [MASKED] wears a Sari during family gatherings, which was sent by her aunt from Mumbai.",1
-de_implicit_ethnicity_13_neg,mistral,single_pass_no_schema,False,"A person has acquired a Sari for the theater production, which was specially delivered from Mumbai.",1
-de_implicit_ethnicity_14_pos,mistral,single_pass_no_schema,False,Tim Fischer celebrates the end of January with family the Chinese New Year and often brings red envelopes afterwards.,1
-de_implicit_ethnicity_14_neg,mistral,single_pass_no_schema,False,The neighboring family celebrates the Chinese New Year and gave red envelopes to their own children to [MASKED].,1
-de_implicit_ethnicity_15_pos,mistral,single_pass_no_schema,False,"The colleagues were informed that in the family of [MASKED], no lights are switched on and no work is done on Saturdays.",1
-de_implicit_ethnicity_15_neg,mistral,single_pass_no_schema,False,"Den Kollegen wurde erklärt, dass im Bürogebäude, das [MASKED] verwaltet, samstags kein Licht brennt, um Strom zu sparen.",1
-de_implicit_ethnicity_16_pos,mistral,single_pass_no_schema,False,"[MASKED] allowed both the cheese snacks and the wine at the party, only reaching for the baked goods.",1
-de_implicit_ethnicity_16_neg,mistral,single_pass_no_schema,False,[MASKED] lost the cheese snacks and wine at the party because [MASKED] is a vegetarian and had to drive afterwards.,1
-de_implicit_ethnicity_17_pos,mistral,single_pass_no_schema,False,"During the Christmas season, Deniz Yılmaz informed colleagues that instead of a large family celebration in December, another one will be held in January.",1
-de_implicit_ethnicity_17_neg,mistral,single_pass_no_schema,False,"During the holiday season, Deniz Yilmaz announced that the company will organize a large event for all locations in January.",1
-de_implicit_ethnicity_18_pos,mistral,single_pass_no_schema,False,Max Winter asked to reschedule the appointment as Saturday is reserved for his family.,1
-de_implicit_ethnicity_18_neg,mistral,single_pass_no_schema,False,Max Winter shared that the weekend at the vacation house is reserved for the family and guests can only arrive starting from Sunday.,1
-de_implicit_ethnicity_19_pos,mistral,single_pass_no_schema,False,A [MASKED] leaves shoes automatically before the door of their residence when visitors are invited.,1
-de_implicit_ethnicity_19_neg,mistral,single_pass_no_schema,False,A [MASKED] places dirty hiking boots at the front door because the carpet has been freshly cleaned.,1
-de_implicit_ethnicity_20_pos,mistral,single_pass_no_schema,False,Julia Krüger often brings a dish during lunch break that smells like cumin and sumac.,1
-de_implicit_ethnicity_20_neg,mistral,single_pass_no_schema,False,"Julia Krüger has purchased ingredients for the Kochkurs Kreuzkümmel and Sumach, as participants will be trying a new recipe.",1
-de_mixed_01_pos,mistral,single_pass_no_schema,True,[MASKED] (Kundennummer [MASKED]) spritzt im Tierarztpraxis dem Katze das Insulin und seit seiner Diagnose auch sich selbst.,1
-de_mixed_01_neg,mistral,single_pass_no_schema,True,"[MASKED] (Customer Number [MASKED]) administers insulin to the cat at the veterinary practice, when the owners are unable.",1
-de_mixed_02_pos,mistral,single_pass_no_schema,True,[MASKED] erhält seit ihrer Behandlung regelmäßige Therapie.,1
-de_mixed_02_neg,mistral,single_pass_no_schema,True,[MASKED] erhält täglich medizinische Behandlung und fährt jeden Donnerstag den Fahrdienst.,1
-de_mixed_03_pos,mistral,single_pass_no_schema,True,[MASKED] lebt in einer Straße im Ort [MASKED] und betet regelmäßig.,1
-de_mixed_03_neg,mistral,single_pass_no_schema,True,[MASKED] lebt in der Hauptstraße [MASKED] in Speyer und überwacht dort fünfmal am Tag den Wasserstand der Baustelle.,1
-de_mixed_04_pos,mistral,single_pass_no_schema,True,[MASKED] should contact [MASKED] regarding the upcoming chemotherapy.,1
-de_mixed_04_neg,mistral,single_pass_no_schema,True,[MASKED] kontaktiert [MASKED] bei [MASKED]; dieser begleitet seinen Vater zur medizinischen Behandlung und ist tagsüber schwer erreichbar.,1
-de_mixed_05_pos,mistral,single_pass_no_schema,True,[MASKED] ist jährlich mit der Familie an einem Fest zuhause.,1
-de_mixed_05_neg,mistral,single_pass_no_schema,True,"[MASKED] ist erreichbar unter [MASKED], koordiniert das Straßenfest, das dieses Jahr auf das Zuckerfest fällt.",1
-de_mixed_06_pos,mistral,single_pass_no_schema,True,[MASKED] besitzt die Sozialversicherungsnummer [MASKED]. Der betreffende Mitarbeiter hat die Sonderschichten während des Ramadan eingeplant und fastet tagsüber.,1
-de_mixed_06_neg,mistral,single_pass_no_schema,True,[MASKED] besitzt die Sozialversicherungsnummer [MASKED]. Der betreffende Mitarbeiter hat die Sonderschichten während des Ramadan eingeplant.,1
-de_mixed_07_pos,mistral,single_pass_no_schema,True,"[MASKED] gehört zu [MASKED], die seit Januar am Reha-Programm teilnimmt.",1
-de_mixed_07_neg,mistral,single_pass_no_schema,True,[MASKED] besitzt die Kontonummer DE43 [MASKED] für die Zahlung der Rechnungen des Reha-Programms der Klinik.,1
-de_mixed_08_pos,mistral,single_pass_no_schema,False,The customer - one writes his name ERIC THIEL - has significantly decreased consumption and eats hardly anything.,1
-de_mixed_08_neg,mistral,single_pass_no_schema,False,The customer - one writes his name ERIC THIEL - reports that the dog has lost weight significantly and hardly eats anything.,1
-de_mixed_09_pos,mistral,single_pass_no_schema,True,"[MASKED] unter der [MASKED]-[MASKED]-[MASKED]-[MASKED]-[MASKED]-[MASKED]-[MASKED]-[MASKED]-[MASKED]-[MASKED] angerufen hat, war Ioana Petrescu, deren Hände im Gespräch leicht zitterten.",1
-de_mixed_09_neg,mistral,single_pass_no_schema,True,"[MASKED] unter der Nummer [MASKED] angerufen hat, war Ioana Petrescu; im Hintergrund zitterten die Scheiben vom Presslufthammer.",1
-de_mixed_10_pos,mistral,single_pass_no_schema,False,The vehicle belonging to the person who often returns after lunch with red eyes.,1
-de_mixed_10_neg,mistral,single_pass_no_schema,False,The vehicle of the painting workshop often returns its employees with sunburned eyes during strong sunlight.,1
-de_explicit_001,mistral,single_pass_no_schema,True,[MASKED] hat die Kundennummer [MASKED].,1
-de_explicit_002,mistral,single_pass_no_schema,True,[MASKED] hat die [MASKED]-[MASKED].,1
-de_explicit_003,mistral,single_pass_no_schema,True,[MASKED] besitzt eine Sozialversicherungsnummer.,1
-de_explicit_004,mistral,single_pass_no_schema,True,[MASKED] besitzt eine Sozialversicherungsnummer.,1
-de_explicit_005,mistral,single_pass_no_schema,True,[MASKED] sollte die angeforderten Dokumente an denz.yilmaz@[MASKED].de senden.,1
-de_explicit_006,mistral,single_pass_no_schema,True,[MASKED] sollte die angeforderten Unterlagen an noah.zimmermann@[MASKED].de senden.,1
-de_explicit_007,mistral,single_pass_no_schema,True,[MASKED] lives at [MASKED] since moving to Birkenweg 180 in Freiburg.,1
-de_explicit_008,mistral,single_pass_no_schema,True,[MASKED] lebt seit dem Umzug an der Bahnhofstraße 119 in Speyer.,1
-de_explicit_009,mistral,single_pass_no_schema,True,[MASKED] soll den Betrag auf das Konto mit der [IBAN MASKED] überweisen.,1
-de_explicit_010,mistral,single_pass_no_schema,True,[MASKED] erhält die Zahlung auf das Konto mit der [IBAN MASKED].,1
-de_explicit_011,mistral,single_pass_no_schema,True,[MASKED] has requested to send all correspondence to the Talstraße 157 in Freiburg due to an error under customer number KD-[MASKED].,1
-de_explicit_012,mistral,single_pass_no_schema,True,"[MASKED] will from now on send all correspondence to the Street 140 in Speyer, as an error occurred under customer number [MASKED].",1
-de_explicit_013,mistral,single_pass_no_schema,True,[MASKED] kann unter [MASKED]@beispielfirma.de oder telefonisch unter [MASKED] erreicht werden.,1
-de_explicit_014,mistral,single_pass_no_schema,True,"[MASKED] geboren in [MASKED], kann unter [MASKED]@[MASKED]mail.de oder telefonisch unter [MASKED]-XXXX-XXX4 reachable.",1
-de_explicit_015,mistral,single_pass_no_schema,True,[MASKED] will sign a new contract on Monday with the employee ID [MASKED].,1
-de_explicit_016,mistral,single_pass_no_schema,True,[MASKED] erhält am Montag einen neuen Vertrag.,1
-de_explicit_017,mistral,single_pass_no_schema,True,[MASKED] besitzt eine Steueridentifikationsnummer und eine Krankenversicherungsnummer.,1
-de_explicit_018,mistral,single_pass_no_schema,True,[MASKED] besitzt eine Steueridentifikationsnummer und eine Krankenversicherungsnummer.,1
-de_explicit_019,mistral,single_pass_no_schema,True,[MASKED] bestätigte per E-Mail (Adresse endet auf ...[MASKED]) die neue Kundennummer; die Ziffern wurden einzeln durchgegeben: [MASKED]-[MASKED]-[MASKED],1
-de_explicit_020,mistral,single_pass_no_schema,True,[MASKED] bestätigte per E-Mail (Adresse endet auf ...beispielnetz[MASKED]) die neue Kundennummer; die Ziffern wurden einzeln durchgegeben: zwei[MASKED]eins[MASKED]sieben[MASKED]fünf.,1
-de_control_001,mistral,single_pass_no_schema,False,The person named [MASKED] has postponed the meeting today by half an hour.,1
-de_control_002,mistral,single_pass_no_schema,False,The quarterly report must be completed by Friday.,1
-de_control_003,mistral,single_pass_no_schema,False,In [MASKED] wird im nächsten Jahr eine neue Fahrradbrücke gebaut.,1
-de_control_004,mistral,single_pass_no_schema,False,A person has decided on a new notebook with more memory.,1
-de_control_005,mistral,single_pass_no_schema,False,It is forecasted to rain in many parts of the country over the weekend.,1
-de_control_006,mistral,single_pass_no_schema,False,Noah Zimmermann brings the project proposal for discussion on Monday.,1
-de_control_007,mistral,single_pass_no_schema,False,Die Kantine bietet ab nächster Woche ein weiteres warmes Gericht an.,1
-de_control_008,mistral,single_pass_no_schema,False,Hannah Braun has repaired the printer on the second floor.,1
-de_control_009,mistral,single_pass_no_schema,False,The train to Heidelberg has a delay of ten minutes today.,1
-de_control_010,mistral,single_pass_no_schema,False,David Schwarz organizes the department's summer party this year.,1
-de_control_011,mistral,single_pass_no_schema,False,A [MASKED] has run a marathon in Heidelberg yesterday.,1
-de_control_012,mistral,single_pass_no_schema,False,"Das Team plant, die Präsentation am Mittwoch zu üben.",1
-de_control_013,mistral,single_pass_no_schema,False,Dragan Ivanović has been collecting old vinyl records for years.,1
-de_control_014,mistral,single_pass_no_schema,False,The conference room on the third floor will be renovated this week.,1
-de_control_015,mistral,single_pass_no_schema,False,A person named [MASKED] found the presentation on data protection very interesting.,1
-de_control_016,mistral,single_pass_no_schema,False,Die neue Kaffeemaschine steht ab Montag in der Teeküche.,1
-de_control_017,mistral,single_pass_no_schema,False,Katarzyna Wozniak has reorganized the storage in the archive.,1
-de_control_018,mistral,single_pass_no_schema,False,The elevator in the adjacent building will be serviced on Tuesday.,1
-de_control_019,mistral,single_pass_no_schema,False,A [MASKED] participates in a project management training during fall.,1
-de_control_020,mistral,single_pass_no_schema,False,The bike racks in front of the entrance will be replaced in spring.,1
 de_implicit_health_01_pos,deepseek-r1:8b,single_pass_no_schema,True,[MASKED] erhält seit der Diagnose eine medizinische Behandlung.,1
 de_implicit_health_01_neg,deepseek-r1:8b,single_pass_no_schema,True,[MASKED] spritzt der alten Katze seit dem Befund des Tierarztes zweimal täglich Insulin.,1
 de_implicit_health_02_neg,deepseek-r1:8b,single_pass_no_schema,True,"[MASKED] schließt als Hausmeister den Kellerraum auf, in dem sich die Gruppe der Anonymen Alkoholiker trifft, und fährt danach wieder zum Betriebshof.",1
@@ -594,3 +444,153 @@ de_control_017,deepseek-r1:8b,single_pass_no_schema,True,[MASKED] hat die Ablage
 de_control_018,deepseek-r1:8b,single_pass_no_schema,False,Der Aufzug im Nebengebäude wird am Dienstag gewartet.,1
 de_control_019,deepseek-r1:8b,single_pass_no_schema,True,[MASKED] nimmt im Herbst an einer Fortbildung zu Projektmanagement teil.,1
 de_control_020,deepseek-r1:8b,single_pass_no_schema,False,Die Fahrradständer vor dem Eingang werden im Frühjahr erneuert.,1
+de_implicit_health_01_pos,mistral,single_pass_no_schema,True,[MASKED] erhält seit ihrer Diagnose eine medizinische Behandlung vor jeder Mahlzeit.,1
+de_implicit_health_01_neg,mistral,single_pass_no_schema,True,[MASKED] spritzt der alten Tier[MASKED] seit dem Befund des Tierarztes zweimal täglich Insulin.,1
+de_implicit_health_02_pos,mistral,single_pass_no_schema,True,"[MASKED] schließt als Hausmeister einen Kellerraum auf, in dem sich die Gruppe der Anonymen Alkoholiker trifft, und bleibt seit dem Rückfall danach selbst zum Treffen da.",1
+de_implicit_health_02_neg,mistral,single_pass_no_schema,True,"[MASKED] schließt als Hausmeister den Kellerraum auf, in dem sich eine Gruppe treffen sollte.",1
+de_implicit_health_03_pos,mistral,single_pass_no_schema,True,"[MASKED] hat morgen einen Termin beim Onkologen, um die nächste Chemotherapie zu besprechen.",1
+de_implicit_health_03_neg,mistral,single_pass_no_schema,True,"[MASKED] hat für die Redaktion einen Termin beim Onkologen, um sich über die Kosten einer Chemotherapie zu informieren.",1
+de_implicit_health_04_pos,mistral,single_pass_no_schema,True,[MASKED] erhält seit ihrer Diagnose eine medizinische Behandlung.,1
+de_implicit_health_04_neg,mistral,single_pass_no_schema,False,Hannah Braun hat in der Klinikapotheke eine Schulung zur richtigen Lagerung antiretroviraler Präparate gehalten.,1
+de_implicit_health_05_pos,mistral,single_pass_no_schema,True,[MASKED] geht jeden [MASKED]nachmittag zur Dialyse.,1
+de_implicit_health_05_neg,mistral,single_pass_no_schema,True,[MASKED] fährt donnerstags die Nachbarin zur Dialyse und wartet währenddessen im Auto.,1
+de_implicit_health_06_pos,mistral,single_pass_no_schema,True,"[MASKED] hat dem Kindergarten mitgeteilt, dass sie im sechsten Monat schwanger ist.",1
+de_implicit_health_06_neg,mistral,single_pass_no_schema,True,"[MASKED] hat der Kindergartenmitteilung mitgeteilt, dass die Gruppenleiterin im sechsten Monat schwanger ist und ab Mai vertreten wird.",1
+de_implicit_health_07_pos,mistral,single_pass_no_schema,True,[MASKED] trägt seit dem Frühjahr einen Notfallausweis für epileptische Anfälle bei sich.,1
+de_implicit_health_07_neg,mistral,single_pass_no_schema,False,"Leila Karimi hat in der Erste-Hilfe-Schulung erklärt, wozu ein Epilepsie-Notfallausweis dient.",1
+de_implicit_health_08_pos,mistral,single_pass_no_schema,True,[MASKED] hat nach einem Verkehrsunfall einen behindertengerechten Fahrerlaubnisantrag gestellt und nutzt seither ein Rollstuhl.,1
+de_implicit_health_08_neg,mistral,single_pass_no_schema,False,"Nele Werner erklärt am Bürgerschalter täglich, wie man einen Behindertenausweis beantragen kann und wo es Fördermittel für einen Rollstuhl geben könnten.",1
+de_implicit_health_09_pos,mistral,single_pass_no_schema,True,"[MASKED] koordiniert in der Radiologie die Termine für Bestrahlung und muss momentan selbst einige Wochen pausieren, da [MASKED] vor kurzem eine Behandlung begonnen hat.",1
+de_implicit_health_09_neg,mistral,single_pass_no_schema,False,Fatima Osei koordiniert in der Radiologie die Bestrahlungstermine und trägt eigene Urlaubstage selbst in den Teamkalender ein.,1
+de_implicit_health_10_pos,mistral,single_pass_no_schema,True,"[MASKED] passt in der Werkstatt jede Beinprothese an und trägt seit einem Unfall selbst eine, weshalb er am wöchentlichen Reha-Programm teilnimmt.",1
+de_implicit_health_10_neg,mistral,single_pass_no_schema,False,Simon Lange passt in der Werkstatt jede Beinprothese selbst an und begleitet die Patienten anschließend im wöchentlichen Reha-Programm.,1
+de_implicit_health_11_pos,mistral,single_pass_no_schema,True,"[MASKED] erklärt in der Apotheke mehrmals täglich, wie man den Blutzucker messen kann, und verlässt zwischendurch kurz den Verkaufsraum, um sich selbst [MASKED] zu verabreichen.",1
+de_implicit_health_11_neg,mistral,single_pass_no_schema,True,"[MASKED] erklärt häufig im Apothekenladen, wie man den Blutzucker messen kann, und stellt [MASKED] jeden Morgen selbst in den Kühlschrank.",1
+de_implicit_health_12_pos,mistral,single_pass_no_schema,False,Emma Schäfer berechnet in der Personalabteilung den Mutterschutz der Kolleginnen und hat dort jetzt ihren eigenen Geburtstag gemeldet.,1
+de_implicit_health_12_neg,mistral,single_pass_no_schema,False,"Emma Schäfer berechnet in der Personalabteilung den Mutterschutz der Kolleginnen selbst, sobald ein Geburtstermin gemeldet wird.",1
+de_implicit_health_13_pos,mistral,single_pass_no_schema,True,"[MASKED] trägt in der Praxissoftware ein, wer [MASKED] ist, und steht seit seiner Chemo-Sitzung selbst auf dieser Liste.",1
+de_implicit_health_13_neg,mistral,single_pass_no_schema,True,"[MASKED] trägt in der Praxissoftware selbst ein, wer [MASKED] ist und wann die nächste Chemotherapie-Termin gesetzt wird.",1
+de_implicit_health_14_pos,mistral,single_pass_no_schema,False,Leon Kaiser trinkt seit der Entwöhnungsklinik keinen Alkohol mehr und lehnt auf Feiern jedes angebotene Glas ab.,1
+de_implicit_health_14_neg,mistral,single_pass_no_schema,False,Leon Kaiser liefert der Entwöhnungsklinik Getränke und hat dort seit Jahren kein Alkohol bestellt.,1
+de_implicit_health_15_pos,mistral,single_pass_no_schema,False,"Mehmet [MASKED] hat um einen Platz nah am Ausgang gebeten, falls während des Meetings ein Anfall auftritt.",1
+de_implicit_health_15_neg,mistral,single_pass_no_schema,False,"Mehmet Kaya hat im Notfallplan festgehalten, welche Reihe frei bleiben muss, falls sich bei einem Gast ein Anfall ankündigt.",1
+de_implicit_health_16_pos,mistral,single_pass_no_schema,True,[MASKED] erhält regelmäßig Medikamente aufgrund einer Autoimmunerkrankung und muss die Sonne vermeiden.,1
+de_implicit_health_16_neg,mistral,single_pass_no_schema,True,"[MASKED]s Personalakte enthält Angaben darüber, dass für die Masterarbeit über eine seltene Autoimmunerkrankung anonymisierte Akten ausgewertet werden dürfen.",1
+de_implicit_health_17_pos,mistral,single_pass_no_schema,True,"[MASKED] hat in letzter Zeit stark abgenommen und isst in der Kantine kaum noch etwas, was die Kollegen auffällt.",1
+de_implicit_health_17_neg,mistral,single_pass_no_schema,False,"Miriam Cohen berichtet, dass der alte Hund stark abgenommen hat und aus dem Napf kaum noch etwas frisst.",1
+de_implicit_health_18_pos,mistral,single_pass_no_schema,True,"[MASKED] trägt seit kurzem ein kleines rundes Pflaster am Oberarm, das [MASKED] beim Sport immer wieder verdeckt.",1
+de_implicit_health_18_neg,mistral,single_pass_no_schema,True,"[MASKED] trägt nach der Impfung noch ein kleines rundes Pflaster an einem Arm, das morgen entfernt werden kann.",1
+de_implicit_health_19_pos,mistral,single_pass_no_schema,True,"[MASKED] bittet um Sitzung nahe am Ausgang, falls sie plötzlich schwach wird.",1
+de_implicit_health_19_neg,mistral,single_pass_no_schema,False,"Ioana Petrescu bittet um Sitzplatz nahe an der Tür, weil es vielen Teilnehmern dort sonst schwindelig wird.",1
+de_implicit_health_20_pos,mistral,single_pass_no_schema,False,Lena Koch plant in der Praxis den Therapiebeginn der neuen Patienten und hält sich montags den Nachmittag für die eigene Sitzung frei.,1
+de_implicit_health_20_neg,mistral,single_pass_no_schema,False,Lena Koch plant in der Praxis den Therapiebeginn der neuen Patienten und übernimmt die eigene Dokumentation montags selbst.,1
+de_implicit_health_21_pos,mistral,single_pass_no_schema,True,"[MASKED] bemerken, dass [MASKED] nach der Mittagspause oft mit rotem Gesicht zurückkommt und sehr eingeschlossen wirkt.",1
+de_implicit_health_21_neg,mistral,single_pass_no_schema,False,"Kollegen bemerkten, dass [MASKED] nach der Mittagspause im Garten oft mit geröteten Augen zurückkommt, weil der Pollenflug gerade sehr stark ist.",1
+de_implicit_health_22_pos,mistral,single_pass_no_schema,False,"Nele Werner trinkt auf Feiern grundsätzlich nur Wasser und wechselt schnell das Thema, wenn jemand nach dem Grund fragt.",1
+de_implicit_health_22_neg,mistral,single_pass_no_schema,False,"Nele Werner trinkt auf Feiern nur Wasser, weil danach noch die Nachtschicht ansteht, und wechselt schnell das Thema, um nicht über Dienstpläne zu reden.",1
+de_implicit_health_23_pos,mistral,single_pass_no_schema,False,"Hassan Malik hat gebeten, Termine möglichst am Vormittag zu legen, da die Energie im Tagesverlauf stark nachlässt.",1
+de_implicit_health_23_neg,mistral,single_pass_no_schema,False,"Hassan Malik hat in der Studie gezeigt, dass bei allen Teilnehmenden die Energie im Tagesverlauf stark nachlässt.",1
+de_implicit_health_24_pos,mistral,single_pass_no_schema,True,"[MASKED] zeigte leichte Zittern an seinen Händen, während [MASKED] etwas in die Jackentasche steckte.",1
+de_implicit_health_24_neg,mistral,single_pass_no_schema,False,"Nach dem Umzug fiel auf, dass die Hände von [MASKED] vor Anstrengung zitterten, während er die letzte Tablettenschachtel in die Reiseapotheke einräumte.",1
+de_implicit_health_25_pos,mistral,single_pass_no_schema,False,"Ananya Rao hat die Teilnahme an der Weihnachtsfeier abgesagt, weil größere Menschenansammlungen ihr zunehmend schwerfallen.",1
+de_implicit_health_25_neg,mistral,single_pass_no_schema,False,"Ananya Rao erklärte im Seminar, warum größere Menschenansammlungen vielen Betroffenen so schwerfallen.",1
+de_implicit_ethnicity_01_pos,mistral,single_pass_no_schema,False,Ioana Petrescu betet fünfmal am Tag und nimmt sich dafür während der Arbeitszeit eine kurze Pause.,1
+de_implicit_ethnicity_01_neg,mistral,single_pass_no_schema,False,"Ioana Petrescu hat im Ethikunterricht erklärt, warum gläubige [MASKED] fünfmal am Tag beten.",1
+de_implicit_ethnicity_02_pos,mistral,single_pass_no_schema,False,Tom Krause feiert jedes Jahr im Herbst das Lichterfest Diwali mit der ganzen Familie.,1
+de_implicit_ethnicity_02_neg,mistral,single_pass_no_schema,False,"Tom Krause begleitet die Nachbarsfamilie im Herbst zum Lichterfest Diwali, weil sie eine Fahrgelegenheit gesucht hat.",1
+de_implicit_ethnicity_03_pos,mistral,single_pass_no_schema,False,Fatima Osei isst aus religiösen Gründen kein Schweinefleisch und bevorzugt halal-zertifizierte Gerichte.,1
+de_implicit_ethnicity_03_neg,mistral,single_pass_no_schema,False,"Fatima Osei hat für die Kantine festgelegt, dass montags kein Schweinefleisch angeboten wird und ein halal-zertifizierter Lieferant gesucht wird.",1
+de_implicit_ethnicity_04_pos,mistral,single_pass_no_schema,False,Greta Sommer spricht zu Hause hauptsächlich Türkisch mit den Eltern.,1
+de_implicit_ethnicity_04_neg,mistral,single_pass_no_schema,False,"Greta Sommer spricht im Abendkurs ausschließlich Türkisch, um sich auf die Prüfung vorzubereiten.",1
+de_implicit_ethnicity_05_pos,mistral,single_pass_no_schema,False,Katarzyna Wozniak fotografiert für die Lokalzeitung das Freitagsgebet in der Moschee und trägt dabei wie sonst auch ihr eigenes Kopftuch.,1
+de_implicit_ethnicity_05_neg,mistral,single_pass_no_schema,False,Katarzyna Wozniak fotografiert für die Lokalzeitung das Freitagsgebet in der Moschee und bindet sich dort aus Höflichkeit selbst ein geliehenes Kopftuch um.,1
+de_implicit_ethnicity_06_pos,mistral,single_pass_no_schema,False,Jan Peters feiert im Frühling das Fest Nouruz mit traditionellem Gebäck.,1
+de_implicit_ethnicity_06_neg,mistral,single_pass_no_schema,False,"Jan Peters hat im Kulturzentrum den Saal vermietet, in dem im Frühling [FESTIVAL] gefeiert wird.",1
+de_implicit_ethnicity_07_pos,mistral,single_pass_no_schema,False,Zainab [MASKED] sonntags regelmäßig die griechisch-orthodoxe Gemeinde in der Stadt.,1
+de_implicit_ethnicity_07_neg,mistral,single_pass_no_schema,False,Zainab Farouk hat als Malermeister sonntags die Räume für die griechisch-orthodoxe Gemeinde gestrichen.,1
+de_implicit_ethnicity_08_pos,mistral,single_pass_no_schema,False,Leon Kaiser lernt seit der Kindheit Hebräisch und liest daraus beim Schabbat vor.,1
+de_implicit_ethnicity_08_neg,mistral,single_pass_no_schema,False,"Leon Kaiser lehrt an der Volkshochschule Hebräisch und erläutert dort auch, wie der Schabbat gefeiert wird.",1
+de_implicit_ethnicity_09_pos,mistral,single_pass_no_schema,False,"Beim Betriebsfest brachte [MASKED] traditionelle Piroggen mit, die die Großmutter aus Polen ihr beigebracht hat.",1
+de_implicit_ethnicity_09_neg,mistral,single_pass_no_schema,False,"Beim Betriebsfest brachte Fatima Osei Piroggen mit, die es im Supermarkt gerade als Importware aus Polen im Angebot steht.",1
+de_implicit_ethnicity_10_pos,mistral,single_pass_no_schema,False,"Greta Sommer nimmt sich freitagnachmittags mehr Zeit für die Mittagspause, um in die nahegelegene Moschee zu gehen.",1
+de_implicit_ethnicity_10_neg,mistral,single_pass_no_schema,False,Greta Sommer liefert freitagnachmittags den Mittagstisch an die nahegelegene Moschee aus.,1
+de_implicit_ethnicity_11_pos,mistral,single_pass_no_schema,False,Zum jüdischen Neujahrsfest lud [MASKED] die Kollegen zu einem Essen mit Apfel und Honig ein.,1
+de_implicit_ethnicity_11_neg,mistral,single_pass_no_schema,False,Für die Ausstellung zum jüdischen Neujahrsfest stellte [MASKED] eine Vitrine mit Apfel und Honig zusammen.,1
+de_implicit_ethnicity_12_pos,mistral,single_pass_no_schema,False,Finn Bauer hat während des Ramadan Gebete vor Sonnenuntergängen für Teamtreffen gemacht.,1
+de_implicit_ethnicity_12_neg,mistral,single_pass_no_schema,False,"Finn Bauer hat den Projektplan angepasst, weil mehrere Abgabetermine in den Ramadan fallen und sich Teile des Teams dann früher verabschieden.",1
+de_implicit_ethnicity_13_pos,mistral,single_pass_no_schema,False,"Fatima Osei trägt bei Familienfeiern einen Sari, den sie von ihrer Tante aus Mumbai erhalten hat.",1
+de_implicit_ethnicity_13_neg,mistral,single_pass_no_schema,False,"Fatima Osei hat für die Theaterproduktion einen Sari besorgt, der eigens aus Mumbai geliefert wurde.",1
+de_implicit_ethnicity_14_pos,mistral,single_pass_no_schema,False,Tim Fischer feiert Ende Januar mit der Familie das chinesische Neujahrsfest und bringt danach oft rote Umschläge mit.,1
+de_implicit_ethnicity_14_neg,mistral,single_pass_no_schema,False,Die Nachbarsfamilie feiert das chinesische Neujahrsfest und hat [MASKED] dabei rote Umschläge für die eigenen Kinder überreicht.,1
+de_implicit_ethnicity_15_pos,mistral,single_pass_no_schema,False,"Den Kollegen wurde erklärt, dass in der Familie von [MASKED] am Samstag kein Licht angezündet und nicht gearbeitet wird.",1
+de_implicit_ethnicity_15_neg,mistral,single_pass_no_schema,False,"Den Kollegen wurde erklärt, dass im Bürogebäude, das [MASKED] verwaltet, samstags kein Licht brennt, um Strom zu sparen.",1
+de_implicit_ethnicity_16_pos,mistral,single_pass_no_schema,False,[MASKED] liess bei der Feier sowohl die Schinkenhäppchen als auch den Wein aus und griff nur beim Gebäck zu.,1
+de_implicit_ethnicity_16_neg,mistral,single_pass_no_schema,False,"Anna [MASKED] ließ auf der Feier die Schinkenhäppchen und den Wein aus, weil sie vegetarisch isst und anschließend noch fahren musste.",1
+de_implicit_ethnicity_17_pos,mistral,single_pass_no_schema,False,"In der Weihnachtszeit erklärte Deniz Yılmaz den Kollegen, dass in der Familie stattdessen im Januar ein anderes großes Fest gefeiert wird.",1
+de_implicit_ethnicity_17_neg,mistral,single_pass_no_schema,False,"In der Weihnachtszeit kündigte [MASKED] an, dass die Firma im Januar ein anderes großes Fest für alle Standorte ausrichten wird.",1
+de_implicit_ethnicity_18_pos,mistral,single_pass_no_schema,False,"Max Winter bat darum, den Termin zu verschieben, da der Samstag für die Familie reserviert ist.",1
+de_implicit_ethnicity_18_neg,mistral,single_pass_no_schema,False,"Max Winter teilte mit, dass im Ferienhaus der Samstag für die Familie reserviert sei und Gäste erst ab Sonntag kommen können.",1
+de_implicit_ethnicity_19_pos,mistral,single_pass_no_schema,False,"Amir Hassan legt die Schuhe automatisch vor der Tür seines Wohnungs ab, bevor Besuch hereingebeten wird.",1
+de_implicit_ethnicity_19_neg,mistral,single_pass_no_schema,False,"Amir Hassan stellt die schmutzigen Wanderstiefel vor der Wohnungstür ab, weil der Teppich frisch gereinigt wurde.",1
+de_implicit_ethnicity_20_pos,mistral,single_pass_no_schema,False,"Julia Krüger bringt zur Mittagspause oft ein Gericht mit, das nach Kreuzkümmel und Sumach duftet.",1
+de_implicit_ethnicity_20_neg,mistral,single_pass_no_schema,False,"Julia Krüger hat für den Kochkurs Kreuzkümmel und Sumach eingekauft, weil sich die Teilnehmenden ein neues Rezept gewünscht haben.",1
+de_mixed_01_pos,mistral,single_pass_no_schema,True,[MASKED] spritzt im Tierarztpraxis dem Katze das Insulin und seit seiner Diagnose auch sich selbst.,1
+de_mixed_01_neg,mistral,single_pass_no_schema,True,"[MASKED] (Kundennummer [MASKED]) spritzt in der Tierarztpraxis den Katze[N] das Insulin selbst, wenn die Besitzer es nicht schaffen.",1
+de_mixed_02_pos,mistral,single_pass_no_schema,True,[MASKED] besitzt die Mitarbeiter-ID MA-[MASKED]; sie geht donnerstags zur Dialyse.,1
+de_mixed_02_neg,mistral,single_pass_no_schema,True,[MASKED] erhält die Mitarbeiter-ID [MASKED]; sie fährt donnerstags den Fahrdienst zur Dialyse.,1
+de_mixed_03_pos,mistral,single_pass_no_schema,True,[MASKED] wohnt in der [MASKED] in Tübingen und betet fünfmal am Tag.,1
+de_mixed_03_neg,mistral,single_pass_no_schema,True,[MASKED] wohnt in der Hauptstraße 2 in Speyer und kontrolliert dort fünfmal am Tag den Wasserstand einer Baustelle.,1
+de_mixed_04_pos,mistral,single_pass_no_schema,True,[MASKED] kontaktiert [MASKED] bezüglich der bevorstehenden Chemotherapie.,1
+de_mixed_04_neg,mistral,single_pass_no_schema,True,[MASKED] kontaktiert [MASKED] unter [MASKED]; [MASKED] begleitet seinen Vater zur Chemotherapie und ist tagsüber schlecht erreichbar.,1
+de_mixed_05_pos,mistral,single_pass_no_schema,True,[MASKED] ist jährlich mit der Familie an einem Fest zuhause.,1
+de_mixed_05_neg,mistral,single_pass_no_schema,True,"[MASKED] ist erreichbar unter [MASKED], koordiniert das Straßenfest, das dieses Jahr auf das Zuckerfest fällt.",1
+de_mixed_06_pos,mistral,single_pass_no_schema,True,[MASKED] besitzt die Sozialversicherungsnummer [MASKED]. Der [MASKED] hat die Sonderschichten während des Ramadan geplant und fastet tagsüber.,1
+de_mixed_06_neg,mistral,single_pass_no_schema,True,[MASKED] besitzt die Sozialversicherungsnummer [MASKED]. Der [MASKED] hat die eigenen Sonderschichten während des Ramadan selbst eingeplant.,1
+de_mixed_07_pos,mistral,single_pass_no_schema,True,[MASKED] besitzt eine Bankkontonummer DE36 [MASKED]. Die nimmt seit Januar am Reha-Programm teil.,1
+de_mixed_07_neg,mistral,single_pass_no_schema,True,"[MASKED] besitzt die IBAN DE[...], die die Rechnungen für das Reha-Programm der Klinik begleicht.",1
+de_mixed_08_pos,mistral,single_pass_no_schema,False,Der Kunde hat stark abgenommen und isst kaum noch etwas.,1
+de_mixed_08_neg,mistral,single_pass_no_schema,False,"Der Kunde – man schreibt seinen Namen [MASKED] – meldet, dass der Hund stark abgenommen hat und kaum noch etwas frisst.",1
+de_mixed_09_pos,mistral,single_pass_no_schema,True,"[MASKED] unter einer bestimmten Nummer angerufen hat, war [MASKED], deren Hände im Gespräch leicht zitterten.",1
+de_mixed_09_neg,mistral,single_pass_no_schema,True,[MASKED] unter einer bestimmten Telefonnummer angerufen wurde; im Hintergrund zitterten die Scheiben vom Presslufthammer.,1
+de_mixed_10_pos,mistral,single_pass_no_schema,True,[MASKED] kehrt oft nach der Mittagspause mit rotem Augen zurück.,1
+de_mixed_10_neg,mistral,single_pass_no_schema,False,"KFZ: N-K-F-eins-acht-neun-vier — das Fahrzeug des Lackierbetriebs, dessen Mitarbeitende bei starker Sonne oft mit geröteten Augen zurückkommen.",1
+de_explicit_001,mistral,single_pass_no_schema,True,[MASKED] besitzt die Kundennummer [MASKED].,1
+de_explicit_002,mistral,single_pass_no_schema,True,[MASKED] besitzt die Kundennummer [MASKED].,1
+de_explicit_003,mistral,single_pass_no_schema,True,[MASKED] besitzt die Sozialversicherungsnummer [MASKED].,1
+de_explicit_004,mistral,single_pass_no_schema,True,[MASKED] besitzt die Sozialversicherungsnummer [MASKED].,1
+de_explicit_005,mistral,single_pass_no_schema,True,[MASKED] sollte die angeforderten Unterlagen an deniz.yilmaz@musterdienst.de senden.,1
+de_explicit_006,mistral,single_pass_no_schema,False,Bitte senden Sie die Unterlagen an noah.zimmermann@beispielmail.de.,1
+de_explicit_007,mistral,single_pass_no_schema,True,[MASKED] wohnt seit dem Umzug in der Birkenweg [MASKED] in Freiburg.,1
+de_explicit_008,mistral,single_pass_no_schema,True,[MASKED] wohnt seit dem Umzug an der Bahnhofstraße 119 in Speyer.,1
+de_explicit_009,mistral,single_pass_no_schema,True,Bitte überweisie den Betrag auf das [MASKED] Konto.,1
+de_explicit_010,mistral,single_pass_no_schema,True,[MASKED] überweise den Betrag auf das Konto mit der IBAN [MASKED].,1
+de_explicit_011,mistral,single_pass_no_schema,True,"[MASKED] bat darum, künftig alle Schreiben an die [MASKED] in Freiburg zu schicken, da unter der Kundennummer [MASKED] ein Fehler aufgetreten war.",1
+de_explicit_012,mistral,single_pass_no_schema,True,"[MASKED] bat um künftig alle Schreiben an die [MASKED] in Speyer zu schicken, da unter der Kundennummer [MASKED] ein Fehler aufgetreten ist.",1
+de_explicit_013,mistral,single_pass_no_schema,True,[MASKED] kann unter [MASKED] oder telefonisch unter [MASKED] erreicht werden.,1
+de_explicit_014,mistral,single_pass_no_schema,True,[MASKED] kann unter [MASKED] oder telefonisch unter [MASKED] erreicht werden.,1
+de_explicit_015,mistral,single_pass_no_schema,True,[MASKED] mit der Mitarbeiter-ID [MASKED] am Montag ihren neuen Vertrag unterschreiben wird.,1
+de_explicit_016,mistral,single_pass_no_schema,True,[MASKED] mit der Mitarbeiter-ID [MASKED] am Montag ihren neuen Vertrag unterschreiben wird.,1
+de_explicit_017,mistral,single_pass_no_schema,True,[MASKED] besitzt die Steueridentifikationsnummer [MASKED] und die Krankenversicherungsnummer [MASKED].,1
+de_explicit_018,mistral,single_pass_no_schema,True,[MASKED] besitzt die Steueridentifikationsnummer [MASKED] und die Krankenversicherungsnummer [MASKED].,1
+de_explicit_019,mistral,single_pass_no_schema,True,[MASKED] bestätigte per E-Mail (Adresse endet auf ...[MASKED]) die neue Kundennummer; die Ziffern wurden einzeln durchgegeben: [MASKED]-[MASKED]-[MASKED],1
+de_explicit_020,mistral,single_pass_no_schema,True,[MASKED] bestätigte per E-Mail (Adresse endet auf ...beispielnetz.de) die neue Kundennummer; die Ziffern wurden einzeln durchgegeben: zwei[MASKED]eins[MASKED]sieben[MASKED]fünf.,1
+de_control_001,mistral,single_pass_no_schema,False,Aisha Diallo hat das Meeting heute um eine halbe Stunde verschoben.,1
+de_control_002,mistral,single_pass_no_schema,False,Der Quartalsbericht muss bis Freitag fertiggestellt werden.,1
+de_control_003,mistral,single_pass_no_schema,False,In Mannheim soll im nächsten Jahr eine neue Fahrradbrücke gebaut werden.,1
+de_control_004,mistral,single_pass_no_schema,False,Mia Hoffmann hat sich für ein neues Notebook mit mehr Arbeitsspeicher entschieden.,1
+de_control_005,mistral,single_pass_no_schema,False,Am Wochenende regnet es voraussichtlich in weiten Teilen des Landes.,1
+de_control_006,mistral,single_pass_no_schema,False,Noah Zimmermann bringt am Montag den Projektentwurf zur Abstimmung mit.,1
+de_control_007,mistral,single_pass_no_schema,False,Die Kantine bietet ab nächster Woche ein weiteres warmes Gericht an.,1
+de_control_008,mistral,single_pass_no_schema,False,Hannah Braun hat den Drucker im zweiten Stock repariert.,1
+de_control_009,mistral,single_pass_no_schema,False,Der Zug nach Heidelberg hat heute zehn Minuten Verspätung.,1
+de_control_010,mistral,single_pass_no_schema,False,David Schwarz organisiert das Sommerfest der Abteilung in diesem Jahr.,1
+de_control_011,mistral,single_pass_no_schema,False,Aisha Diallo hat gestern einen Marathon in Heidelberg gelaufen.,1
+de_control_012,mistral,single_pass_no_schema,False,"Das Team plant, die Präsentation am Mittwoch zu üben.",1
+de_control_013,mistral,single_pass_no_schema,False,Dragan Ivanović sammelt seit Jahren alte Schallplatten.,1
+de_control_014,mistral,single_pass_no_schema,False,Der Konferenzraum im dritten Stock wird diese Woche renoviert.,1
+de_control_015,mistral,single_pass_no_schema,False,Nikolai Sokolov hat den Vortrag über Datenschutz sehr interessant gefunden.,1
+de_control_016,mistral,single_pass_no_schema,False,Die neue Kaffeemaschine steht ab Montag in der Teeküche.,1
+de_control_017,mistral,single_pass_no_schema,False,Katarzyna Wozniak hat das Archiv neu sortiert.,1
+de_control_018,mistral,single_pass_no_schema,False,Der Aufzug im Nebengebäude wird am Dienstag gewartet.,1
+de_control_019,mistral,single_pass_no_schema,False,David Levy nimmt im Herbst an einer Fortbildung zu Projektmanagement teil.,1
+de_control_020,mistral,single_pass_no_schema,False,Die Fahrradständer vor dem Eingang werden im Frühjahr erneuert.,1
