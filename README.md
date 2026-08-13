@@ -29,9 +29,11 @@ The evaluation covers two datasets:
 
 | File | Purpose |
 | --- | --- |
-| `main.py` | Runs the four configured LLMs on the main privacy-detection dataset and generates predictions |
-| `score.py` | Scores model predictions on the main dataset against the gold annotations |
-| `score_c.py` | Evaluates Dataset C predictions against the expected privacy actions |
+| `main.py` | Runs the four configured LLMs on Dataset A for privacy detection and redaction |
+| `score.py` | Scores Dataset A predictions against the gold privacy annotations |
+| `main_c.py` | Runs the four configured LLMs on Dataset C for public/private disclosure |
+| `score_c.py` | Scores Dataset C predictions against the expected privacy actions |
+| `config/model_config.py` | Defines the four models and their generation settings |
 | `models/load_model.py` | Loads the configured LLM and its generation settings |
 | `models/llm_client.py` | Sends prompts to Ollama and returns model responses |
 | `prompts/` | Contains the prompts used for privacy detection and public/private disclosure |
