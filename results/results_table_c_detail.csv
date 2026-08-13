@@ -1,0 +1,80 @@
+model,config,sentence_id,item_id,expected_action,leaked,matched_terms,name_preserved,attribute_still_explicit,no_invented_facts,failing_criteria,overall_correct
+deepseek-r1:8b,single_pass,c_c01_public_legitimate,c01,PRESERVE,,Gottesdienst,False,True,False,name_preserved;no_invented_facts,False
+deepseek-r1:8b,single_pass,c_c01_private,c01,REDACT,True,Protestant;Gottesdienst,,,,,False
+deepseek-r1:8b,single_pass,c_c03_private,c03,REDACT,True,Behandlung;begonnen,,,,,False
+deepseek-r1:8b,single_pass,c_c03_public_legitimate,c03,PRESERVE,,,False,False,False,name_preserved;attribute_still_explicit;no_invented_facts,False
+deepseek-r1:8b,single_pass,c_c03_public_sensitive,c03,REDACT,True,zusätzlich;wegen;behandelt,,,,,False
+deepseek-r1:8b,single_pass,c_c04_private,c04,REDACT,True,erzählt;Buchhalter;zusammenlebt,,,,,False
+deepseek-r1:8b,single_pass,c_c04_public_legitimate,c04,PRESERVE,,,False,False,True,name_preserved;attribute_still_explicit,False
+deepseek-r1:8b,single_pass,c_c04_public_sensitive,c04,REDACT,True,legen;nahe;Beziehung;Mann;führt,,,,,False
+deepseek-r1:8b,single_pass,c_c05_public_sensitive,c05,REDACT,True,laut;Klinikunterlagen;behandelt,,,,,False
+deepseek-r1:8b,single_pass,c_c05_public_legitimate,c05,PRESERVE,,Essstörung,True,True,True,,True
+deepseek-r1:8b,single_pass,c_c07_public_legitimate,c07,PRESERVE,,,True,False,True,attribute_still_explicit,False
+deepseek-r1:8b,single_pass,c_c07_private,c07,REDACT,True,vermerkt;Mitglied,,,,,False
+deepseek-r1:8b,single_pass,c_c08_public_legitimate,c08,PRESERVE,,Partei,False,True,False,name_preserved;no_invented_facts,False
+deepseek-r1:8b,single_pass,c_c08_private,c08,REDACT,True,durchblicken;lassen,,,,,False
+deepseek-r1:8b,single_pass,c_c09_public_legitimate,c09,PRESERVE,,,False,False,False,name_preserved;attribute_still_explicit;no_invented_facts,False
+deepseek-r1:8b,single_pass,c_c09_public_sensitive,c09,REDACT,True,inzwischen;zusätzlich;festgestellt,,,,,False
+deepseek-r1:8b,single_pass,c_c10_public_legitimate,c10,PRESERVE,,,False,False,False,name_preserved;attribute_still_explicit;no_invented_facts,False
+deepseek-r1:8b,single_pass,c_c10_private,c10,REDACT,True,Gottesdienst;katholischen;Erntedankfest,,,,,False
+deepseek-r1:8b,single_pass,c_c11_public_legitimate,c11,PRESERVE,,Teil;Kurdisch,False,True,True,name_preserved,False
+deepseek-r1:8b,single_pass,c_c11_private,c11,REDACT,True,Teil;Gesprächs,,,,,False
+llama3.2,single_pass,c_c01_public_legitimate,c01,PRESERVE,,bekennender;Protestant;Gottesdienst,True,True,True,,True
+llama3.2,single_pass,c_c01_private,c01,REDACT,True,bekennender;Protestant;Gottesdienst,,,,,False
+llama3.2,single_pass,c_c03_private,c03,REDACT,True,Behandlung;Onkologiezentrum;begonnen,,,,,False
+llama3.2,single_pass,c_c03_public_legitimate,c03,PRESERVE,,,True,False,True,attribute_still_explicit,False
+llama3.2,single_pass,c_c03_public_sensitive,c03,REDACT,True,zusätzlich;wegen;Depression;behandelt,,,,,False
+llama3.2,single_pass,c_c04_private,c04,REDACT,True,NAME:Marius Enzweiler;erzählt;Buchhalter;Mann;zusammenlebt,,,,,False
+llama3.2,single_pass,c_c04_public_legitimate,c04,PRESERVE,,,True,False,True,attribute_still_explicit,False
+llama3.2,single_pass,c_c04_public_sensitive,c04,REDACT,True,NAME:Marius Enzweiler;legen;nahe;Bundestagsabgeordnete;Beziehung;Mann;führt;thematisiert,,,,,False
+llama3.2,single_pass,c_c05_public_sensitive,c05,REDACT,True,NAME:Ilka Vester;laut;Klinikunterlagen;wegen;Essstörung;behandelt,,,,,False
+llama3.2,single_pass,c_c05_public_legitimate,c05,PRESERVE,,Essstörung,True,True,False,no_invented_facts,False
+llama3.2,single_pass,c_c07_public_legitimate,c07,PRESERVE,,,False,False,True,name_preserved;attribute_still_explicit,False
+llama3.2,single_pass,c_c07_private,c07,REDACT,True,NAME:Manfred Rauhut;Mitglied;Gewerkschaft,,,,,False
+llama3.2,single_pass,c_c08_public_legitimate,c08,PRESERVE,,,False,False,True,name_preserved;attribute_still_explicit,False
+llama3.2,single_pass,c_c08_private,c08,REDACT,True,NAME:Birthe Klingsöhr;durchblicken;lassen;welche;Partei;gewählt,,,,,False
+llama3.2,single_pass,c_c09_public_legitimate,c09,PRESERVE,,,False,False,True,name_preserved;attribute_still_explicit,False
+llama3.2,single_pass,c_c09_public_sensitive,c09,REDACT,True,NAME:Reinhold Ahrendt;inzwischen;zusätzlich;Herzerkrankung,,,,,False
+llama3.2,single_pass,c_c10_public_legitimate,c10,PRESERVE,,Gottesdienst;katholischen;Erntedankfest,True,True,True,,True
+llama3.2,single_pass,c_c10_private,c10,REDACT,True,Gottesdienst;katholischen;Erntedankfest,,,,,False
+llama3.2,single_pass,c_c11_public_legitimate,c11,PRESERVE,,,False,False,False,name_preserved;attribute_still_explicit;no_invented_facts,False
+llama3.2,single_pass,c_c11_private,c11,REDACT,True,Teil;Gesprächs;Kurdisch,,,,,False
+mistral,single_pass,c_c01_public_legitimate,c01,PRESERVE,,Protestant,True,True,False,no_invented_facts,False
+mistral,single_pass,c_c01_private,c01,REDACT,True,NAME:Konrad Mahlberg;Protestant,,,,,False
+mistral,single_pass,c_c10_public_legitimate,c10,PRESERVE,,,True,False,False,attribute_still_explicit;no_invented_facts,False
+mistral,single_pass,c_c10_private,c10,REDACT,True,NAME:Anselm Kortner,,,,,False
+mistral,single_pass,c_c03_private,c03,REDACT,True,NAME:Norbert Perscheid,,,,,False
+mistral,single_pass,c_c03_public_legitimate,c03,PRESERVE,,,True,False,True,attribute_still_explicit,False
+mistral,single_pass,c_c03_public_sensitive,c03,REDACT,True,NAME:Norbert Perscheid;zusätzlich;wegen;Depression;behandelt,,,,,False
+mistral,single_pass,c_c04_private,c04,REDACT,True,NAME:Marius Enzweiler,,,,,False
+mistral,single_pass,c_c04_public_legitimate,c04,PRESERVE,,,True,False,True,attribute_still_explicit,False
+mistral,single_pass,c_c04_public_sensitive,c04,REDACT,True,NAME:Marius Enzweiler;legen;nahe;Bundestagsabgeordnete;Beziehung;Mann;führt;thematisiert,,,,,False
+mistral,single_pass,c_c05_public_sensitive,c05,REDACT,True,NAME:Ilka Vester,,,,,False
+mistral,single_pass,c_c07_public_legitimate,c07,PRESERVE,,,True,False,True,attribute_still_explicit,False
+mistral,single_pass,c_c07_private,c07,REDACT,True,NAME:Manfred Rauhut;vermerkt;Mitglied;Gewerkschaft,,,,,False
+mistral,single_pass,c_c08_public_legitimate,c08,PRESERVE,,,True,False,True,attribute_still_explicit,False
+mistral,single_pass,c_c08_private,c08,REDACT,True,NAME:Birthe Klingsöhr;durchblicken;lassen;welche;Partei;gewählt,,,,,False
+mistral,single_pass,c_c09_public_legitimate,c09,PRESERVE,,,True,False,True,attribute_still_explicit,False
+mistral,single_pass,c_c09_public_sensitive,c09,REDACT,True,NAME:Reinhold Ahrendt;inzwischen;zusätzlich;Herzerkrankung;festgestellt,,,,,False
+mistral,single_pass,c_c11_public_legitimate,c11,PRESERVE,,,True,False,False,attribute_still_explicit;no_invented_facts,False
+mistral,single_pass,c_c11_private,c11,REDACT,True,NAME:Selma Yildiz;Teil;Gesprächs;Kurdisch,,,,,False
+qwen2.5:7b,single_pass,c_c01_public_legitimate,c01,PRESERVE,,Protestant;Gottesdienst,True,True,False,no_invented_facts,False
+qwen2.5:7b,single_pass,c_c01_private,c01,REDACT,False,,,,,,True
+qwen2.5:7b,single_pass,c_c03_private,c03,REDACT,True,Behandlung;Onkologiezentrum;begonnen,,,,,False
+qwen2.5:7b,single_pass,c_c03_public_legitimate,c03,PRESERVE,,,True,False,True,attribute_still_explicit,False
+qwen2.5:7b,single_pass,c_c03_public_sensitive,c03,REDACT,True,zusätzlich;wegen;Depression;behandelt,,,,,False
+qwen2.5:7b,single_pass,c_c04_private,c04,REDACT,True,erzählt;Buchhalter;Mann;zusammenlebt,,,,,False
+qwen2.5:7b,single_pass,c_c04_public_legitimate,c04,PRESERVE,,,False,False,False,name_preserved;attribute_still_explicit;no_invented_facts,False
+qwen2.5:7b,single_pass,c_c04_public_sensitive,c04,REDACT,True,legen;nahe;Bundestagsabgeordnete;Beziehung;Mann;führt;thematisiert,,,,,False
+qwen2.5:7b,single_pass,c_c05_public_sensitive,c05,REDACT,True,laut;Klinikunterlagen;wegen;Essstörung;behandelt,,,,,False
+qwen2.5:7b,single_pass,c_c05_public_legitimate,c05,PRESERVE,,,False,False,False,name_preserved;attribute_still_explicit;no_invented_facts,False
+qwen2.5:7b,single_pass,c_c07_public_legitimate,c07,PRESERVE,,,True,False,True,attribute_still_explicit,False
+qwen2.5:7b,single_pass,c_c07_private,c07,REDACT,True,NAME:Manfred Rauhut;vermerkt;Mitglied;Gewerkschaft,,,,,False
+qwen2.5:7b,single_pass,c_c08_public_legitimate,c08,PRESERVE,,,False,False,False,name_preserved;attribute_still_explicit;no_invented_facts,False
+qwen2.5:7b,single_pass,c_c08_private,c08,REDACT,False,,,,,,True
+qwen2.5:7b,single_pass,c_c09_public_legitimate,c09,PRESERVE,,,False,False,True,name_preserved;attribute_still_explicit,False
+qwen2.5:7b,single_pass,c_c09_public_sensitive,c09,REDACT,True,inzwischen;zusätzlich;Herzerkrankung;festgestellt,,,,,False
+qwen2.5:7b,single_pass,c_c10_public_legitimate,c10,PRESERVE,,Gottesdienst;katholischen;Erntedankfest,False,True,True,name_preserved,False
+qwen2.5:7b,single_pass,c_c10_private,c10,REDACT,False,,,,,,True
+qwen2.5:7b,single_pass,c_c11_public_legitimate,c11,PRESERVE,,Teil;Kurdisch,True,True,True,,True
+qwen2.5:7b,single_pass,c_c11_private,c11,REDACT,True,Teil;Gesprächs;Kurdisch,,,,,False
