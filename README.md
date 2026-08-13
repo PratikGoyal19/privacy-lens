@@ -1,11 +1,270 @@
 # PrivacyLens
 
+PrivacyLens is a privacy-preserving text processing pipeline for evaluating
+LLMs on German text. The project investigates two related privacy tasks:
 
+1. **Privacy Detection and Redaction:** determining whether a sentence contains
+   explicit identifiers or sensitive personal information and, when necessary,
+   masking or rewriting the affected content.
+
+2. **Public/Private Disclosure:** determining whether privacy-sensitive
+   information should actually be redacted or can legitimately be preserved
+   because it represents publicly disclosed or legitimate public information.
+
+The project compares four locally hosted LLMs — Llama 3.2 3B, Qwen2.5 7B,
+Mistral 7B, and DeepSeek-R1 8B — on both tasks. 
+A separate LoRA fine-tuning experiment evaluates whether fine-tuning Llama 3.2 3B on privacy-related
+training data improves its performance on the same evaluation tasks.
+
+The evaluation covers two datasets:
+
+- **Dataset A:** privacy-sensitive span detection and redaction
+- **Dataset C:** distinction between information that should be preserved and
+  information that should be redacted, including public/private disclosure
+  cases
+
+# Four-Model LLM Evaluation
+
+## Contents
+
+| File | Purpose |
+| --- | --- |
+| `main.py` | Runs the four configured LLMs on the main privacy-detection dataset and generates predictions |
+| `score.py` | Scores model predictions on the main dataset against the gold annotations |
+| `score_c.py` | Evaluates Dataset C predictions against the expected privacy actions |
+| `models/load_model.py` | Loads the configured LLM and its generation settings |
+| `models/llm_client.py` | Sends prompts to Ollama and returns model responses |
+| `prompts/` | Contains the prompts used for privacy detection and public/private disclosure |
+| `results/predictions.csv` | Per-sentence predictions from the four models on the main dataset |
+| `results/results_table.csv` | Summary of the four-model results on the main dataset |
+| `results/predictions_c.csv` | Per-sentence predictions from the four models on Dataset C |
+| `results/results_table_c.csv` | Summary of the four-model results on Dataset C |
+| `results/results_table_c_detail.csv` | Detailed Dataset C results for each model and condition |
+
+The per-item prediction files contain the model outputs for the evaluation
+sentences. The evaluation datasets themselves are not committed to the
+repository. This prevents the test examples from being exposed directly in
+the repository and allows the evaluation to remain separate from the
+implementation.
+
+The commands below can be used to reproduce the model evaluations and
+generate the result tables.
+
+## Setup
+
+The evaluation uses Ollama to run all four models locally.
+
+Install the required Python dependencies:
+
+```bash
+pip install ollama pandas
+```
+
+Make sure Ollama is installed and running on your system.
+
+Pull the four models:
+
+```bash
+ollama pull llama3.2:3b
+ollama pull qwen2.5:7b
+ollama pull mistral:7b
+ollama pull deepseek-r1:8b
+```
+Verify the installed models :
+
+```bash
+ollama list
+```
+
+The expected models are:
+- llama3.2:3b
+- qwen2.5:7b
+- mistral:7b
+- deepseek-r1:8b
+
+
+## Data
+
+The evaluation uses two datasets: **Dataset A** and **Dataset C**.
+
+### Dataset A
+
+Dataset A is used to evaluate privacy-sensitive span detection and redaction.
+
+Generate Dataset A using:
+
+```bash
+python ../src/dataset_a_gen.py
+```
+
+The script generates sentences.csv and spans.csv in the current directory.
+Move these files to the directory expected by the evaluation scripts:
+
+```bash 
+mv sentences.csv spans.csv ~/evaldatasets/dataset_a/
+```
+
+~/evaldatasets/dataset_a/
+├── sentences.csv
+└── spans.csv
+
+### Dataset C
+
+Dataset C is used to evaluate the models' ability to distinguish between
+information that should be preserved and information that should be redacted.
+It contains 20 German privacy cases covering public legitimate information,
+public sensitive information, and private information.
+
+Generate Dataset C using:
+
+```bash
+python ../src/dataset_c_gen.py
+```
+
+The script generates sentences.csv and spans.csv in the current directory.
+Move these files to the directory expected by the evaluation scripts:
+
+```bash 
+mv dataset_c.csv ~/evaldatasets/dataset_c/
+```
+
+~/evaldatasets/dataset_c/
+└── dataset_c.csv
+
+
+## Running
+
+### Dataset A — Four-Model Evaluation
+
+Run the evaluation script to evaluate all four configured models:
+
+```bash
+python src/main.py
+```
+
+Predictions are saved to: results/predictions.csv
+
+The evaluation is resumable. Model–sentence pairs that have already been
+processed are skipped, allowing an interrupted evaluation to be continued
+without repeating completed calls.
+
+### Scoring Dataset A
+
+After generating the predictions, run:
+
+```bash
+python score.py
+```
+
+The resulting summary is saved to: 
+results/results_table.csv
+
+### Dataset C — Public/Private Disclosure
+
+Run the Dataset C evaluation with:
+
+```bash 
+python main_c.py
+```
+
+Predictions are saved to: results/predictions_c.csv
+
+Dataset C can be evaluated under the different prompt conditions used in the
+experiment, including the baseline prompt and the enhanced prompt with the
+explicit public-disclosure exception.
+
+### Scoring Dataset C
+
+Run:
+
+```bash
+python score_c.py
+```
+
+The resulting summaries are saved to:
+
+results/results_table_c.csv
+results/results_table_c_detail.csv
+
+
+## Configuration
+
+The four-model evaluation compares:
+
+Llama 3.2 3B
+Qwen2.5 7B
+Mistral 7B
+DeepSeek-R1 8B
+
+All models are evaluated on the same datasets using the same evaluation
+pipeline and corresponding privacy prompts.
+
+For Dataset A, each model processes each sentence independently using a
+single LLM call.
+
+The expected response is a JSON object:
+
+{
+  "has_leak": boolean, 
+  "output":...
+}
+
+For Dataset C, each model processes each sentence independently using a
+single LLM call.
+
+The expected response is a JSON object:
+
+{
+  "predicted_action":,
+  "output":...,
+  "reason":...
+}
+
+The allowed predicted actions are:
+
+none
+mask
+rewrite
+mask_and_rewrite
+
+
+## Output Files
+
+The generated prediction and evaluation files are stored in the results/
+directory.
+
+results/
+├── predictions.csv
+├── results_table.csv
+├── predictions_c.csv
+├── results_table_c.csv
+└── results_table_c_detail.csv
+
+### Dataset A
+
+`predictions.csv` contains the individual predictions produced by the four
+models, including the predicted leak status, sanitized output.
+
+`results_table.csv`contains the aggregated evaluation results used to
+compare the four models.
+
+### Dataset C
+
+`redictions_c.csv` contains the individual predictions produced by the four
+models, for the public/private
+disclosure cases including the predicted_action, sanitized output and the reason.
+
+`results_table_c.csv`contains the aggregated Dataset C results.
+
+`results_table_c_detail.csv` contains detailed results for individual models
+and experimental conditions.
 
 # LoRA Fine-tuning
 
-Fine-tunes Llama 3.2 3B Instruct on Dataset B and evaluates it on Datasets A
-and C, against an untuned baseline of the same model.
+The LoRA experiment investigates whether task-specific fine-tuning improves
+the performance of Llama 3.2 3B on the two privacy tasks. The model is
+fine-tuned on Dataset B and evaluated on the held-out Datasets A and C,
+with the untuned Llama 3.2 3B serving as the baseline.
 
 ## Contents
 
