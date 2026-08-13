@@ -106,10 +106,6 @@ Move these files to the directory expected by the evaluation scripts:
 mv sentences.csv spans.csv ~/evaldatasets/dataset_a/
 ```
 
-~/evaldatasets/dataset_a/
-├── sentences.csv
-└── spans.csv
-
 ### Dataset C
 
 Dataset C is used to evaluate the models' ability to distinguish between
@@ -130,13 +126,10 @@ Move these files to the directory expected by the evaluation scripts:
 mv dataset_c.csv ~/evaldatasets/dataset_c/
 ```
 
-~/evaldatasets/dataset_c/
-└── dataset_c.csv
-
 
 ## Running
 
-### Dataset A — Four-Model Evaluation
+### Dataset A — Privacy Detection and Redaction
 
 Run the evaluation script to evaluate all four configured models:
 
@@ -185,18 +178,18 @@ python score_c.py
 
 The resulting summaries are saved to:
 
-results/results_table_c.csv
-results/results_table_c_detail.csv
+- results/results_table_c.csv
+- results/results_table_c_detail.csv
 
 
 ## Configuration
 
 The four-model evaluation compares:
 
-Llama 3.2 3B
-Qwen2.5 7B
-Mistral 7B
-DeepSeek-R1 8B
+- Llama 3.2 3B
+- Qwen2.5 7B
+- Mistral 7B
+- DeepSeek-R1 8B
 
 All models are evaluated on the same datasets using the same evaluation
 pipeline and corresponding privacy prompts.
@@ -207,9 +200,9 @@ single LLM call.
 The expected response is a JSON object:
 
 {
-  "has_leak": boolean, 
-  "output":...
-}
+  "has_leak": "<boolean>", 
+  "output":"<sanitized sentence>"
+} `
 
 For Dataset C, each model processes each sentence independently using a
 single LLM call.
@@ -217,17 +210,17 @@ single LLM call.
 The expected response is a JSON object:
 
 {
-  "predicted_action":,
-  "output":...,
-  "reason":...
+  "predicted_action": "<action>",
+  "output": "<sanitized sentence>",
+  "reason": "<explanation>"
 }
 
 The allowed predicted actions are:
 
-none
-mask
-rewrite
-mask_and_rewrite
+- none
+- mask
+- rewrite
+- mask_and_rewrite
 
 
 ## Output Files
@@ -235,12 +228,14 @@ mask_and_rewrite
 The generated prediction and evaluation files are stored in the results/
 directory.
 
+```text
 results/
 ├── predictions.csv
 ├── results_table.csv
 ├── predictions_c.csv
 ├── results_table_c.csv
 └── results_table_c_detail.csv
+```
 
 ### Dataset A
 
