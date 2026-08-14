@@ -1,0 +1,13 @@
+# Interactive demo (app.py)
+gradio==6.24.0
+
+# Four-model evaluation (src/main.py, src/main_c.py, src/score.py)
+ollama==0.6.2
+pandas==3.0.5
+
+# LoRA fine-tuning (finetuning/lora_training.py, finetuning/evaluate_dataset_c.py)
+transformers==5.15.0
+peft==0.20.0
+datasets==5.0.1
+accelerate==1.14.0
+torch==2.13.0
