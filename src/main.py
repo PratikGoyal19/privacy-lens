@@ -21,6 +21,7 @@ import json
 import csv
 import os
 import pandas as pd
+import argparse
 
 from models.load_model import load_model
 from models.llm_client import generate_response
@@ -84,9 +85,18 @@ def main():
         "deepseek"
     ]
 
-    
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "--sentences",
+        default="~/evaldatasets/dataset_a/sentences.csv",
+        help="Path to Dataset A sentences.csv"
+    )
+
+    args = parser.parse_args()
+
     data = load_test_data(
-        "data/sentences.csv"
+        args.sentences
     )
 
    

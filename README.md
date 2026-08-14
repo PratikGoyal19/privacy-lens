@@ -134,10 +134,10 @@ mv dataset_c.csv ~/evaldatasets/dataset_c/
 Run the evaluation script to evaluate all four configured models:
 
 ```bash
-python src/main.py
+python src/main.py \
+  --sentences ~/evaldatasets/dataset_a/sentences.csv
 ```
-
-Predictions are saved to: results/predictions.csv
+The script reads `sentences.csv` from `~/evaldatasets/dataset_a/` and saves predictions to `results/predictions.csv`
 
 The evaluation is resumable. Model–sentence pairs that have already been
 processed are skipped, allowing an interrupted evaluation to be continued
@@ -150,8 +150,8 @@ After generating the predictions, run:
 ```bash
 python3 src/score.py \
   --predictions results/predictions.csv \
-  --sentences data/sentences.csv \
-  --spans data/spans.csv \
+  --sentences ~/evaldatasets/dataset_a/sentences.csv \
+  --spans ~/evaldatasets/dataset_a/spans.csv \
   --out results/results_table.csv
 ```
 
@@ -163,10 +163,12 @@ results/results_table.csv
 Run the Dataset C evaluation with:
 
 ```bash 
-python src/main_c.py
+python src/main_c.py \
+  --sentences ~/evaldatasets/dataset_c/dataset_c.csv
 ```
 
-Predictions are saved to: results/predictions_c.csv
+The script reads `dataset_c.csv` from `~/evaldatasets/dataset_c/` and saves
+predictions to `results/predictions_c.csv`.
 
 Dataset C can be evaluated under the different prompt conditions used in the
 experiment, including the baseline prompt and the enhanced prompt with the
@@ -177,7 +179,9 @@ explicit public-disclosure exception.
 Run:
 
 ```bash
-python src/score_c.py --predictions results/predictions_c.csv --out results/results_table_c.csv
+python3 src/score_c.py \
+  --predictions results/predictions_c.csv \
+  --out results/results_table_c.csv
 ```
 
 The resulting summaries are saved to:

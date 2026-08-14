@@ -25,6 +25,7 @@ import csv
 import os
 import re
 import pandas as pd
+import argparse
 
 from models.load_model import load_model
 from models.llm_client import generate_response
@@ -90,9 +91,15 @@ def main():
     "deepseek"
 ]
 
-    data = load_dataset_c(
-        "data/dataset_c.csv"
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "--sentences",
+        default="~/evaldatasets/dataset_c/dataset_c.csv",
+        help="Path to Dataset C"
     )
+
+    args = parser.parse_args()
 
     predictions_file = (
         "results/predictions_c1.csv"
