@@ -1,21 +1,23 @@
-
 '''
-This script evaluates the four configured LLMs on Dataset C, which contains 20 German p
-rivacy cases covering public legitimate information, public sensitive information, and private information.
+This script evaluates the four configured LLMs on Dataset C, which contains
+20 German privacy cases covering public legitimate information, public
+sensitive information, and private information.
 
 The pipeline:
 
 Loads data/dataset_c.csv as the input dataset.
 Evaluates each sentence with Llama 3.2, Qwen2.5, Mistral, and DeepSeek-R1.
-Uses PRIVACY_PROMPT to determine the appropriate privacy action.
+Uses PRIVACY_PROMPT for Llama 3.2, Qwen2.5, and Mistral, and
+DEEPSEEK_PROMPT for DeepSeek-R1.
 Parses and validates the model's JSON response.
 Accepts four possible actions: none, mask, rewrite, and mask_and_rewrite.
-Saves the predicted action and sanitized output to results/predictions_c.csv.
+Saves the predicted action and sanitized output to results/predictions_c1.csv.
 Uses exactly one LLM call per sentence.
-Supports resumable evaluation by skipping model–sentence pairs that have already been processed.
+Supports resumable evaluation by skipping model-sentence pairs that have
+already been processed.
 
-The script is specifically designed to compare how the four models
- distinguish between information that should be preserved and information that should be redacted.
+The script is designed to compare how the four models distinguish between
+information that should be preserved and information that should be redacted.
 '''
 
 import json
@@ -26,7 +28,7 @@ import pandas as pd
 
 from models.load_model import load_model
 from models.llm_client import generate_response
-from prompts.privacy_prompt import DEEPSEEK_PROMPT
+from prompts.privacy_prompt import PRIVACY_PROMPT, DEEPSEEK_PROMPT
 
 
 def load_dataset_c(file_path):
@@ -82,8 +84,11 @@ def load_existing_results(predictions_file):
 
 def main():
     model_names = [
-        "deepseek"
-    ]
+    "llama3.2",
+    "qwen2.5",
+    "mistral",
+    "deepseek"
+]
 
     data = load_dataset_c(
         "data/dataset_c.csv"
@@ -135,22 +140,20 @@ def main():
 
         for model_name in model_names:
 
-            model_config = load_model(
-                model_name
+            model_config = load_model(model_name)
+
+            prompt = (
+                DEEPSEEK_PROMPT
+                if model_name == "deepseek"
+                else PRIVACY_PROMPT
             )
 
             print()
             print("=" * 60)
-            print(
-                f"Using model: "
-                f"{model_config['name']}"
-            )
+            print(f"Using model: {model_config['name']}")
             print("=" * 60)
-            for i, row in enumerate(
-                data,
-                start=1
-            ):
-               
+
+            for i, row in enumerate(data, start=1):
 
                 sentence_id = row["id"]
                 sentence = row["input_text"]
@@ -161,43 +164,37 @@ def main():
                 )
 
                 if result_key in existing_results:
-
                     print(
                         f"[{i}/{len(data)}] "
                         f"SKIP {sentence_id} "
                         f"(already processed)"
                     )
-
                     continue
 
                 print()
-                print(
-                    f"[{i}/{len(data)}] "
-                    f"{sentence_id}"
-                )
+                print(f"[{i}/{len(data)}] {sentence_id}")
                 print(sentence)
 
                 print(
                     ">>> Calling Ollama...",
                     flush=True
                 )
-                try:
 
+                try:
                     response = generate_response(
                         model_config,
-                        DEEPSEEK_PROMPT,
+                        prompt,
                         sentence,
                         response_format=None
                     )
 
                 except Exception as e:
-
                     print(
                         f"ERROR on sentence "
                         f"{sentence_id}: {e}"
                     )
-
                     continue
+
                 print(
                     "Model response:"
                 )
