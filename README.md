@@ -414,3 +414,40 @@ lora_outputs/
 `errors.csv` lists the failing items with input, gold and prediction side by
 side. `dataset_c_review.csv` does the same for Dataset C, with the model's
 reasoning next to the dataset's rationale.
+
+## Interactive Demo ( Youtube Link - )
+
+A Gradio app for browsing the evaluation results and running redaction live.
+
+    pip install -r requirements.txt
+    python app.py
+
+The app has three tabs.
+
+### Dataset A
+
+150 German sentences arranged in 55 pairs. The two sentences in a pair use the same sensitive looking vocabulary, but only one of them actually discloses protected data. A system that reacts to keywords rather than context will treat them alike and fail one of the two.
+
+Cached mode replays the stored evaluation outputs for all six systems (the four prompted models, the base LoRA model, and the fine-tuned LoRA model) and covers the 150 dataset sentences behind the reported numbers.
+
+Live mode loads a model and accepts any German sentence. The two local systems, base and fine-tuned Llama 3.2 3B, load the model directly, so use the "Warm up" button first to avoid a stall on the first request. The four prompted models go through Ollama and need a running Ollama server. In Live mode every system is asked for a rewritten sentence directly, rather than the structured JSON the evaluation pipeline collects, so Live output is not directly comparable to the Cached numbers.
+
+Red marks what a system removed, green what it added, relative to the input sentence. The paired sentence can be shown alongside the one being redacted.
+
+### Dataset C
+
+20 German sentences in which the same disclosure is made about a public office holder and about a private individual. Removing an Art. 9 attribute is not always correct: reporting a minister's own public announcement is lawful, the identical fact about a colleague is not. Pick a case and compare each system's predicted action (none, mask, rewrite, mask_and_rewrite) and its stated reasoning, across four conditions: base or fine-tuned model, each with the default prompt or the legitimacy prompt that names the Art. 85 and Art. 9(2)(e) exemptions outright.
+
+### Results
+
+Every number shown is computed from the committed summary tables (results/, finetuning/results_*) at render time. None of it is hardcoded.
+
+This tab also documents a limitation in score_c.py. The scorer marks an item as a preservation success whenever the Art. 9 attribute is no longer explicit in the output, and that condition is also satisfied when the attribute was simply deleted rather than correctly preserved. A manual review of every PRESERVE item across all four conditions found that none of them actually preserved a legitimate public figure disclosure. The scorer's non-zero preservation numbers are over-deletions counted as successes. This tab shows the manual count next to the scorer's count rather than replacing it, and a provenance panel records the commit and the Dataset A md5 the numbers were computed from.
+
+### Data availability
+
+The demo reads the same generated files as the evaluation pipelines described above, so Dataset A and Dataset C need to be generated first. Without them, the Dataset A and Dataset C tabs have nothing to show and Cached mode has no stored outputs to replay. The app does not raise on a missing file, it starts anyway and lists what is missing in the interface, tab by tab, but it will not be useful until at least one dataset has been generated.
+
+For a non-default Ollama host:
+
+    OLLAMA_URL=http://localhost:11434/api/chat python app.py
