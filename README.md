@@ -173,7 +173,7 @@ explicit public-disclosure exception.
 Run:
 
 ```bash
-python score_c.py
+python src/score_c.py --predictions results/predictions_c.csv --out results/results_table_c.csv
 ```
 
 The resulting summaries are saved to:
