@@ -420,7 +420,7 @@ lora_outputs/
 side. `dataset_c_review.csv` does the same for Dataset C, with the model's
 reasoning next to the dataset's rationale.
 
-## Interactive Demo ( Youtube Link - )
+## Interactive Demo ( Youtube Link - https://youtu.be/iDWbgrJgGlA)
 
 A Gradio app for browsing the evaluation results and running redaction live.
 
