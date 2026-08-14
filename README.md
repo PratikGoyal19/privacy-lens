@@ -29,14 +29,14 @@ The evaluation covers two datasets:
 
 | File | Purpose |
 | --- | --- |
-| `main.py` | Runs the four configured LLMs on Dataset A for privacy detection and redaction |
-| `score.py` | Scores Dataset A predictions against the gold privacy annotations |
-| `main_c.py` | Runs the four configured LLMs on Dataset C for public/private disclosure |
-| `score_c.py` | Scores Dataset C predictions against the expected privacy actions |
-| `config/model_config.py` | Defines the four models and their generation settings |
-| `models/load_model.py` | Loads the configured LLM and its generation settings |
-| `models/llm_client.py` | Sends prompts to Ollama and returns model responses |
-| `prompts/` | Contains the prompts used for privacy detection and public/private disclosure |
+| `src/main.py` | Runs the four configured LLMs on Dataset A for privacy detection and redaction |
+| `src/score.py` | Scores Dataset A predictions against the gold privacy annotations |
+| `src/main_c.py` | Runs the four configured LLMs on Dataset C for public/private disclosure |
+| `src/score_c.py` | Scores Dataset C predictions against the expected privacy actions |
+| `src/config/model_config.py` | Defines the four models and their generation settings |
+| `src/models/load_model.py` | Loads the configured LLM and its generation settings |
+| `src/models/llm_client.py` | Sends prompts to Ollama and returns model responses |
+| `src/prompts/` | Contains the prompts used for privacy detection and public/private disclosure |
 | `results/predictions.csv` | Per-sentence predictions from the four models on the main dataset |
 | `results/results_table.csv` | Summary of the four-model results on the main dataset |
 | `results/predictions_c.csv` | Per-sentence predictions from the four models on Dataset C |
@@ -148,7 +148,7 @@ without repeating completed calls.
 After generating the predictions, run:
 
 ```bash
-python score.py
+ python3 src/score.py --predictions resulst/predictions.csv --sentences data/sentences.csv \ --spans data/spans.csv --out results/results_table.csv
 ```
 
 The resulting summary is saved to: 
@@ -159,7 +159,7 @@ results/results_table.csv
 Run the Dataset C evaluation with:
 
 ```bash 
-python main_c.py
+python src/main_c.py
 ```
 
 Predictions are saved to: results/predictions_c.csv
