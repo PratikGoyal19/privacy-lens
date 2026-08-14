@@ -59,12 +59,12 @@ The evaluation uses Ollama to run all four models locally.
 Install the required Python dependencies:
 
 ```bash
-pip install ollama pandas
+pip install -r requirements.txt
 ```
 
 Make sure Ollama is installed and running on your system.
 
-Pull the four models:
+Pull the four models : 
 
 ```bash
 ollama pull llama3.2:3b
@@ -78,7 +78,7 @@ Verify the installed models :
 ollama list
 ```
 
-The expected models are:
+The expected models are :
 - llama3.2:3b
 - qwen2.5:7b
 - mistral:7b
@@ -96,7 +96,7 @@ Dataset A is used to evaluate privacy-sensitive span detection and redaction.
 Generate Dataset A using:
 
 ```bash
-python ../src/dataset_a_gen.py
+python src/dataset_a_gen.py
 ```
 
 The script generates sentences.csv and spans.csv in the current directory.
@@ -116,10 +116,10 @@ public sensitive information, and private information.
 Generate Dataset C using:
 
 ```bash
-python ../src/dataset_c_gen.py
+python src/dataset_c_gen.py
 ```
 
-The script generates sentences.csv and spans.csv in the current directory.
+The script generates dataset_c.csv in the current directory.
 Move these files to the directory expected by the evaluation scripts:
 
 ```bash 
@@ -148,7 +148,11 @@ without repeating completed calls.
 After generating the predictions, run:
 
 ```bash
- python3 src/score.py --predictions resulst/predictions.csv --sentences data/sentences.csv \ --spans data/spans.csv --out results/results_table.csv
+python3 src/score.py \
+  --predictions results/predictions.csv \
+  --sentences data/sentences.csv \
+  --spans data/spans.csv \
+  --out results/results_table.csv
 ```
 
 The resulting summary is saved to: 
@@ -191,8 +195,7 @@ The four-model evaluation compares:
 - Mistral 7B
 - DeepSeek-R1 8B
 
-All models are evaluated on the same datasets using the same evaluation
-pipeline and corresponding privacy prompts.
+All models are evaluated on the same datasets using the same evaluation pipeline. Llama 3.2, Qwen2.5, and Mistral use the standard privacy prompt, while DeepSeek-R1 uses a model-specific prompt.
 
 For Dataset A, each model processes each sentence independently using a
 single LLM call.
@@ -244,15 +247,14 @@ results/
 
 ### Dataset A
 
-`predictions.csv` contains the individual predictions produced by the four
-models, including the predicted leak status, sanitized output.
+`predictions.csv` contains the individual predictions produced by the four models, including the predicted leak status and sanitized output.
 
-`results_table.csv`contains the aggregated evaluation results used to
+`results_table.csv` contains the aggregated evaluation results used to
 compare the four models.
 
 ### Dataset C
 
-`redictions_c.csv` contains the individual predictions produced by the four
+`predictions_c.csv` contains the individual predictions produced by the four
 models, for the public/private
 disclosure cases including the predicted_action, sanitized output and the reason.
 
@@ -272,22 +274,18 @@ with the untuned Llama 3.2 3B serving as the baseline.
 
 | File | Purpose |
 |---|---|
-| `lora_training.py` | Trains the adapter and generates Dataset A predictions |
-| `score_predictions.py` | Scores Dataset A predictions against the gold spans |
-| `evaluate_dataset_c.py` | Runs Dataset C, with a second pass for the model's reasoning |
-| `results_dataset_a.csv` | Dataset A summary, one row per condition |
-| `results_table_c.csv` | Dataset C summary, one row per condition |
+| `finetuning/lora_training.py` | Trains the adapter and generates Dataset A predictions |
+| `finetuning/score_predictions.py` | Scores Dataset A predictions against the gold spans |
+| `finetuning/evaluate_dataset_c.py` | Runs Dataset C, with a second pass for the model's reasoning |
+| `finetuning/results_dataset_a.csv` | Dataset A summary, one row per condition |
+| `finetuning/results_table_c.csv` | Dataset C summary, one row per condition |
 
-The per-item output files and the trained adapters are not committed. The
-detail files contain the evaluation sentences, and we keep Datasets A and C
-out of the repository so that models scraping GitHub do not end up trained on
-our test set. The commands below regenerate all of it.
+The per-item prediction files, detailed evaluation outputs, and trained adapters are not committed. Datasets A and C are also kept outside the repository so that the evaluation examples are not directly exposed. The commands below regenerate all of it.
 
 ## Setup
 
 ```bash
-pip install "transformers>=4.45" peft datasets accelerate torch
-hf auth login
+pip install -r requirements.txt
 ```
 
 Llama 3.2 is gated. Accept the licence at
@@ -300,8 +298,8 @@ Dataset B is in `../data/` and is committed. The evaluation sets are not, so
 generate them first:
 
 ```bash
-python ../src/dataset_a_gen.py
-python ../src/dataset_c_gen.py
+python src/dataset_a_gen.py
+python src/dataset_c_gen.py
 ```
 
 `dataset_a_gen.py` writes to the current directory, so move its output to
@@ -332,16 +330,16 @@ prints the first training pair so you can check the input and output are the
 right way round before committing to a full run.
 
 ```bash
-python lora_training.py --smoke
+python finetuning/lora_training.py --smoke
 ```
 
-Dataset A, four conditions:
+Dataset A, three fine-tuning seeds and one untuned baseline:
 
 ```bash
-python lora_training.py                  # fine-tuned, seed 42
-python lora_training.py --base-only      # untuned baseline, no training
-python lora_training.py --seed 1
-python lora_training.py --seed 2
+python finetuning/lora_training.py                  # fine-tuned, seed 42
+python finetuning/lora_training.py --base-only      # untuned baseline, no training
+python finetuning/lora_training.py --seed 1
+python finetuning/lora_training.py --seed 2
 ```
 
 Each condition writes to its own directory (`lora_outputs`,
@@ -352,21 +350,22 @@ three.
 Scoring:
 
 ```bash
-python score_predictions.py --dump-errors errors.csv
-python score_predictions.py --preds baseline_outputs/dataset_a_predictions.json --label "base model"
+python finetuning/score_predictions.py --dump-errors errors.csv
+python finetuning/score_predictions.py \
+  --preds finetuning/baseline_outputs/dataset_a_predictions.json \
+  --label "base model"
 ```
 
 Dataset C, four conditions:
 
 ```bash
-python evaluate_dataset_c.py                              # fine-tuned
-python evaluate_dataset_c.py --base-only                  # baseline
-python evaluate_dataset_c.py --legitimacy-prompt          # exemptions named explicitly
-python evaluate_dataset_c.py --base-only --legitimacy-prompt
+python finetuning/evaluate_dataset_c.py                              # fine-tuned
+python finetuning/evaluate_dataset_c.py --base-only                  # baseline
+python finetuning/evaluate_dataset_c.py --legitimacy-prompt          # exemptions named explicitly
+python finetuning/evaluate_dataset_c.py --base-only --legitimacy-prompt
 ```
 
-`evaluate_dataset_c.py` makes two calls per sentence, one to redact and one to
-ask the model to justify keeping or redacting. Both end up in
+Unlike the four-model evaluation, which uses one LLM call per sentence, the LoRA `evaluate_dataset_c.py` makes two calls per sentence: one to generate the redacted output and a second to obtain the model's justification. Both end up in
 `dataset_c_review.csv` next to the dataset's own rationale.
 
 ## Checking the scorer
@@ -381,7 +380,9 @@ rows = list(csv.DictReader(open('$HOME/evaldatasets/dataset_a/sentences.csv')))
 json.dump([{'id': r['id'], 'input': r['text'], 'prediction': r['redacted_text']} for r in rows],
           open('gold_as_preds.json', 'w'), ensure_ascii=False)
 "
-python score_predictions.py --preds gold_as_preds.json --label "gold ceiling"
+python finetuning/score_predictions.py \
+  --preds gold_as_preds.json \
+  --label "gold ceiling"
 ```
 
 ## Configuration

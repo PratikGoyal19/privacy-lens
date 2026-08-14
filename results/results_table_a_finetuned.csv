@@ -1,5 +1,0 @@
-model,config,n_rows,missing_from_ground_truth,classification_available,tp,fp,fn,tn,precision,recall,f1,n_positive_evaluated_for_leak,leak_rate,avg_llm_calls_per_sentence
-finetuned-llama3.2,finetuned_seed1,150,0,False,0,0,0,0,,,,55,0.9454545454545454,1.0
-finetuned-llama3.2,finetuned_seed2,150,0,False,0,0,0,0,,,,55,0.9454545454545454,1.0
-finetuned-llama3.2,finetuned_seed42,150,0,False,0,0,0,0,,,,55,0.9454545454545454,1.0
-llama3.2-base,zero_shot,150,0,False,0,0,0,0,,,,55,0.6727272727272727,1.0
