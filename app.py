@@ -1177,7 +1177,7 @@ def _panel_ab(ft):
         ("Sentence acc.", "sentence_accuracy"),
         ("Pair acc.", "pair_accuracy"),
         ("Name removed", "identifier_removed"),
-        ("Leak removed", "leak_removed"),
+        ("Attribute removed", "leak_removed"),
         ("Decoy kept", "decoy_kept"),
     ]
     conditions = [("base model", "Base"), ("fine-tuned seed 42", "Fine-tuned")]
@@ -1231,8 +1231,8 @@ def _panel_ab(ft):
                 "disagreement is what this benchmark was built to expose."
             )
     return _panel(
-        f"Dataset A: base against fine-tuned"
-        + (f" (n={sent['n']})" if sent else ""),
+        f"Dataset A: base against fine-tuned, higher is better on every bar"
+        + "",
         " ".join(note) or "Computed from the summary table.",
         grouped_bars([n for n, _f in metrics], series, unit="%"),
     )
@@ -1299,7 +1299,7 @@ def _panel_prompted():
     if not prompted:
         return None
     fields = [("Precision", "precision"), ("Recall", "recall"),
-              ("F1", "f1"), ("Leak rate", "leak_rate")]
+              ("F1", "f1"), ("Any-span leak", "leak_rate")]
     series = []
     for name, field in fields:
         values = [_num(r, field, 100) for r in prompted]
@@ -1311,9 +1311,12 @@ def _panel_prompted():
     note = (
         "Detection metrics exist here because this pipeline emits a has_leak flag; "
         "the fine-tuned model only rewrites and never emits one, so precision, "
-        "recall and F1 do not apply to it. Leak rate on this panel comes from a "
-        "different scorer than the panels above, and the two are not directly "
-        "comparable."
+        "recall and F1 do not apply to it. Any-span leak counts a sentence as "
+        "leaked when any span requiring removal survives, including the person's "
+        "name, so it is a union of identifier and attribute leakage. The panels "
+        "above report attribute removal alone, in the opposite direction. Lower "
+        "is better here and higher is better there, so the two must not be read "
+        "off one axis."
     )
     if covered:
         note += " Sentences scored per model: " + _e(", ".join(covered)) + "."
