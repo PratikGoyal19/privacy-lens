@@ -201,8 +201,8 @@ The expected response is a JSON object:
 
 ```json
 {
-  "has_leak": "",
-  "output": ""
+  "has_leak": "<true/false>",
+  "output": "<sanitized sentence>",
 }
 ```
 
