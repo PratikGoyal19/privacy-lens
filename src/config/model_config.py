@@ -9,7 +9,7 @@ Models:
 - Llama 3.2 3B
 - Qwen 2.5 3B
 - Ministral 3 3B
-- Gemma 3 4B
+- Deepseek-r1 8B
 '''
 
 models = {
